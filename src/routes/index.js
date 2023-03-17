@@ -6,6 +6,7 @@ import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 import Login from '~/pages/Login';
+import Register from '~/pages/Register';
 
 //Public routes
 const publicRoutes = [
@@ -15,6 +16,7 @@ const publicRoutes = [
     { path: '/upload', component: Upload, layout: HeaderOnly },
     { path: '/search', component: Search, layout: null },
     { path: '/login', component: Login, layout: null },
+    { path: '/register', component: Register, layout: null },
 ];
 
 const privateRoute = [];
