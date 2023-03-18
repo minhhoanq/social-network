@@ -1,12 +1,52 @@
 import styles from './Login.module.scss';
 import classNames from 'classnames/bind';
 import { AiFillFacebook } from 'react-icons/ai';
+import { useState } from 'react';
+import isEmpty from 'validator/lib/isEmpty';
 
 const cx = classNames.bind(styles);
 
 function Login() {
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
+    const [validMsg, setValidMsg] = useState('');
+
+    const onChangeUserName = (e) => {
+        const value = e.target.value;
+        setUser(value);
+    };
+
+    const onChangePassword = (e) => {
+        const value = e.target.value;
+        setPassword(value);
+    };
+
+    const ValidateAll = () => {
+        const msg = {};
+        if (isEmpty(user)) {
+            msg.user = 'Please input your email';
+        }
+
+        if (isEmpty(password)) {
+            msg.password = 'Sorry, your password was incorrect. Please double-check your password.';
+        }
+
+        setValidMsg(msg);
+        if (Object.keys(msg).length > 0) return false;
+
+        return true;
+    };
+
+    const onCLickSubmit = (e) => {
+        e.preventDefault();
+        const valid = ValidateAll();
+        if (!valid) {
+            return;
+        }
+    };
+
     return (
-        <div className={cx('wrapper')}>
+        <form className={cx('wrapper')}>
             <div className={cx('login_form')}>
                 <div className={cx('login_form_logo')}>
                     <svg
@@ -37,6 +77,7 @@ function Login() {
                                 className={cx('enter_info_ipnut-user')}
                                 placeholder="Phone number, username, or email"
                                 type={'text'}
+                                onChange={onChangeUserName}
                             ></input>
                         </div>
                         {/* input password */}
@@ -45,11 +86,14 @@ function Login() {
                                 className={cx('enter_info_ipnut-user')}
                                 placeholder="Password"
                                 type={'password'}
+                                onChange={onChangePassword}
                             ></input>
                         </div>
                         {/* btn login */}
                         <div className={cx('enter_info_wrapper_btn')}>
-                            <button className={cx('enter_info_btn')}>Login</button>
+                            <button className={cx('enter_info_btn')} onClick={onCLickSubmit}>
+                                Login
+                            </button>
                         </div>
                         {/* bulkhead */}
                         <div className={cx('wrapper_bul')}>
@@ -66,6 +110,10 @@ function Login() {
                                 <span className={cx('wrapper_link_fb-text')}>Login with Facebook</span>
                             </button>
                         </div>
+                    </div>
+
+                    <div className={cx('wrapper_msg')}>
+                        <p className={cx('msg_notify')}>{validMsg.password}</p>
                     </div>
 
                     <div className={cx('login_form_fogot_pw')}>
@@ -104,7 +152,7 @@ function Login() {
                     </a>
                 </div>
             </div>
-        </div>
+        </form>
     );
 }
 
