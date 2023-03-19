@@ -1,10 +1,45 @@
 import styles from './ForgotPassword.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function ForgotPassword() {
+    const [email, setEmail] = useState('');
+    const [disabled, setDisabled] = useState(0);
+    const [disable, setDisable] = useState('');
+
+    const onChangeEmail = (e) => {
+        const value = e.target.value;
+        setEmail(value);
+    };
+
+    useEffect(() => {
+        if (ValidateEmail() === false) {
+            setDisabled(true);
+            setDisable('disable');
+        } else {
+            setDisabled(false);
+            setDisable('');
+        }
+    }, [email]);
+
+    const ValidateEmail = () => {
+        if (email === '') {
+            return false;
+        }
+        return true;
+    };
+
+    const onClickSendLogin = (e) => {
+        e.preventDefault();
+        const valid = ValidateEmail();
+        if (valid) {
+            console.log('check');
+        }
+    };
+
     return (
         <form className={cx('wrapper')}>
             <div className={cx('login_form')}>
@@ -47,11 +82,18 @@ function ForgotPassword() {
                                 className={cx('enter_info_ipnut-user')}
                                 placeholder="Phone number, username, or email"
                                 type={'text'}
+                                onChange={onChangeEmail}
                             ></input>
                         </div>
                         {/* btn login */}
                         <div className={cx('enter_info_wrapper_btn')}>
-                            <button className={cx('enter_info_btn')}>Send login link</button>
+                            <button
+                                className={cx('enter_info_btn', disable)}
+                                disabled={disabled}
+                                onClick={onClickSendLogin}
+                            >
+                                Send login link
+                            </button>
                         </div>
 
                         <div className={cx('cant_rs_pass')}>
