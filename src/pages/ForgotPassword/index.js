@@ -1,63 +1,10 @@
-import styles from './Login.module.scss';
+import styles from './ForgotPassword.module.scss';
 import classNames from 'classnames/bind';
-import { AiFillFacebook } from 'react-icons/ai';
-import { useEffect, useState } from 'react';
-import isEmpty from 'validator/lib/isEmpty';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function Login() {
-    const [user, setUser] = useState('');
-    const [password, setPassword] = useState('');
-    // const [validMsg, setValidMsg] = useState('');
-    const [disabled, setDisable] = useState(0);
-    const [dis, setDis] = useState('');
-    const [disp, setDisp] = useState('');
-
-    useEffect(() => {
-        if (ValidateAll() === false) {
-            setDisable(true);
-            setDis('disable');
-            setDisp('none');
-        } else {
-            setDisable(false);
-            setDis('');
-        }
-    }, [user, password]);
-
-    const onChangeUserName = (e) => {
-        const value = e.target.value;
-        setUser(value);
-    };
-
-    const onChangePassword = (e) => {
-        const value = e.target.value;
-        setPassword(value);
-    };
-
-    const ValidateAll = () => {
-        if (isEmpty(user)) {
-            return false;
-        }
-
-        if (isEmpty(password)) {
-            return false;
-        }
-
-        return true;
-    };
-
-    const onCLickSubmit = (e) => {
-        e.preventDefault();
-        const valid = ValidateAll();
-        if (!valid) {
-            return;
-        } else {
-            setDisp('block');
-            console.log(`check`);
-        }
-    };
-
+function ForgotPassword() {
     return (
         <form className={cx('wrapper')}>
             <div className={cx('login_form')}>
@@ -81,6 +28,16 @@ function Login() {
                     </svg>
                 </div>
 
+                <div className={cx('trouble')}>
+                    <h4 className={cx('trouble_text')}>Trouble logging in?</h4>
+                </div>
+
+                <div className={cx('description')}>
+                    <p className={cx('description_text')}>
+                        Enter your email, phone, or username and we'll send you a link to get back into your account.
+                    </p>
+                </div>
+
                 <div className={cx('login_form_body')}>
                     {/* inputs */}
                     <div className={cx('login_form_enter_info')}>
@@ -90,85 +47,40 @@ function Login() {
                                 className={cx('enter_info_ipnut-user')}
                                 placeholder="Phone number, username, or email"
                                 type={'text'}
-                                onChange={onChangeUserName}
-                            ></input>
-                        </div>
-                        {/* input password */}
-                        <div className={cx('enter_info_ipnut')}>
-                            <input
-                                className={cx('enter_info_ipnut-user')}
-                                placeholder="Password"
-                                type={'password'}
-                                onChange={onChangePassword}
                             ></input>
                         </div>
                         {/* btn login */}
                         <div className={cx('enter_info_wrapper_btn')}>
-                            <button className={cx('enter_info_btn', dis)} onClick={onCLickSubmit} disabled={disabled}>
-                                Login
-                            </button>
+                            <button className={cx('enter_info_btn')}>Send login link</button>
                         </div>
+
+                        <div className={cx('cant_rs_pass')}>
+                            <Link to={''} className={cx('cant_rs_pass-link')}>
+                                Can't reset your password?
+                            </Link>
+                        </div>
+
                         {/* bulkhead */}
                         <div className={cx('wrapper_bul')}>
                             <div className={cx('wrapper_bul_line')}></div>
                             <div className={cx('wrapper_bul_or')}>OR</div>
                             <div className={cx('wrapper_bul_line')}></div>
                         </div>
-                        {/* login with fb */}
-                        <div className={cx('wrapper_link_fb')}>
-                            <button className={cx('wrapper_link_fb-btn')}>
-                                <span className={cx('wrapper_link_fb-icon')}>
-                                    <AiFillFacebook className={cx('fb-icon')}></AiFillFacebook>
-                                </span>
-                                <span className={cx('wrapper_link_fb-text')}>Login with Facebook</span>
-                            </button>
+
+                        <div className={cx('create_acc')}>
+                            <Link to={''} href={''}>
+                                Create new account
+                            </Link>
                         </div>
-                    </div>
-
-                    <div className={cx('wrapper_msg')} id="msgError" style={{ display: disp }}>
-                        <p className={cx('msg_notify')}>
-                            Sorry, your password was incorrect. Please double-check your password.
-                        </p>
-                    </div>
-
-                    <div className={cx('login_form_fogot_pw')}>
-                        <a href={'https://vietnix.vn/'}>Fogot password</a>
                     </div>
                 </div>
             </div>
 
             <div className={cx('register_temp')}>
-                <div className={cx('register_temp_wrapper_text')}>
-                    <span className={cx('register_temp_text')}>
-                        Don't have an account?
-                        <a href={'https://www.instagram.com/accounts/emailsignup/'} className={cx('pppp')}>
-                            Sign up
-                        </a>
-                    </span>
-                </div>
-            </div>
-
-            <div className={cx('get_the_app')}>
-                <div className={cx('get_the_app_wapper_text')}>
-                    <span className={cx('get_the_app_text')}>Get the app.</span>
-                </div>
-                <div className={cx('get_the_app_wrapper')}>
-                    <a href="https://www.instagram.com/" className={cx('get_the_app_link-google-play')}>
-                        <img
-                            alt="Get it on Google Play"
-                            src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png"
-                        />
-                    </a>
-                    <a href="https://www.instagram.com/" className={cx('get_the_app_link-microsoft')}>
-                        <img
-                            alt="Get it from Microsoft"
-                            src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png"
-                        />
-                    </a>
-                </div>
+                <Link to={''}>Back to login</Link>
             </div>
         </form>
     );
 }
 
-export default Login;
+export default ForgotPassword;
