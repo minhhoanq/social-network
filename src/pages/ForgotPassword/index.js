@@ -110,9 +110,7 @@ function ForgotPassword() {
                         </div>
 
                         <div className={cx('create_acc')}>
-                            <Link to={''} href={''}>
-                                Create new account
-                            </Link>
+                            <Link to={''}>Create new account</Link>
                         </div>
                     </div>
                 </div>
