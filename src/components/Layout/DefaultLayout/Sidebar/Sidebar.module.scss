@@ -61,7 +61,7 @@
 }
 
 .common_link :hover {
-    background-color: #ccc;
+    background-color: #f3f3f3;
     .common_logo {
         scale: 1.05;
     }
@@ -100,6 +100,7 @@
 
 .more {
     height: 56px;
+    position: relative;
 }
 
 .more_link {
@@ -107,7 +108,7 @@
 }
 
 .more_link :hover {
-    background-color: #ccc;
+    background-color: #f3f3f3;
 }
 
 .more_wrapper {
@@ -129,4 +130,99 @@
     display: flex;
     align-items: center;
     padding: 0 0 0 16px;
+}
+
+.more_option {
+    position: absolute;
+    left: 1;
+    bottom: 110%;
+    height: 308px;
+    width: 238px;
+    display: none;
+    background-color: #fff;
+    box-shadow: 2px 2px 8px 2px #ccc;
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.more :hover .more_option {
+    display: block;
+}
+
+.more_option ::before {
+    position: absolute;
+    left: 0px;
+    bottom: -25px;
+    content: '';
+    display: block;
+    // background-color: #262626;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.more {
+    border-radius: 4px;
+}
+
+.more_option_wrapper-settings:first-child {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.more_option_wrapper-logout:last-child {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.more_option_temp {
+    height: 308px;
+    width: 238px;
+    display: flex;
+    flex-direction: column;
+}
+
+.more_option-link {
+    height: 44px;
+    text-decoration: none;
+    border-top: 1px solid #ccc;
+}
+
+.more_option-link:last-child {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    overflow: hidden;
+}
+
+.more_option_wrapper {
+    height: 44px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.more_option-link-settings {
+    border-top: none;
+    border-radius: 40px;
+}
+
+.more_option_wrapper-swacc {
+    border-top: 6px solid #e6e6e6;
+}
+
+.more_option-text {
+    flex: 1;
+    font-size: 1.6rem;
+    color: #404040;
+    border-radius: 40px;
+}
+
+.more_option-logo {
+    height: 24px;
+    margin-left: 12px;
+}
+
+.more_option_temp :hover {
+    background-color: #f3f3f3;
 }
