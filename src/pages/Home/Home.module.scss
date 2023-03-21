@@ -1,0 +1,148 @@
+.main_home {
+    height: 714px;
+    margin: 0 131px;
+}
+
+.wrapper {
+    display: flex;
+    height: 714px;
+}
+
+.news {
+    width: 630px;
+    margin-right: 64px;
+}
+
+.inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.inner_news {
+    width: 470px;
+    height: 878px;
+    margin: 32px 0 12px;
+    padding: 0 0 20px 0;
+}
+
+.news_form {
+    height: 858px;
+    display: flex;
+    flex-direction: column;
+}
+
+.news_form_header {
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_title {
+    height: 40px;
+    width: 422px;
+    margin: 8px 4px 8px 5px;
+    display: flex;
+    align-items: center;
+}
+
+.header_title_wrapper_img {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.header_title_img {
+    width: 32px;
+    height: 32px;
+}
+
+.header_title_img img {
+    width: 32px;
+    height: 32px;
+}
+
+.header_title_wrapper_name {
+    display: flex;
+    margin-left: 10px;
+}
+
+.header_title_name {
+    width: 76px;
+}
+
+.header_title_name :hover {
+    color: #8e8e8e;
+}
+
+.header_title_name-link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #262626;
+}
+
+.title_name_wrapper_time {
+    display: flex;
+    align-items: center;
+}
+
+.title_name_dot {
+    border: 2px solid #8e8e8e;
+    border-radius: 6px;
+    margin: 0 4px;
+}
+
+.title_name_time {
+    font-size: 1.5rem;
+    color: #8e8e8e;
+}
+
+.header_options {
+    height: 24px;
+    width: 24px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #fff;
+}
+
+.header_options :hover svg {
+    fill: rgb(142, 142, 142);
+}
+
+.options_svg {
+    height: 24px;
+}
+
+// .options_svg svg {
+//     fill: rgb(204, 204, 204);
+// }
+
+.news_form_img {
+    height: 470px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.form_img img {
+    height: 470px;
+    width: 470px;
+}
+
+.news_form_desc {
+    height: 332px;
+}
+
+.suggestions {
+    flex: 1;
+}
