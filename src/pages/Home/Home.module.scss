@@ -139,8 +139,55 @@
     width: 470px;
 }
 
+// Desc
 .news_form_desc {
     height: 332px;
+    display: flex;
+    flex-direction: column;
+}
+
+.news_form_desc_temp {
+    height: 40px;
+    margin: 4px 0 0 0;
+    padding: 0 0 6px 0;
+}
+
+.desc_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.desc_icon {
+    border: none;
+    background-color: #fff;
+    height: 46px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.desc_icon :hover {
+    color: #8e8e8e;
+    cursor: pointer;
+}
+
+.desc_reaction :hover {
+    fill: #8e8e8e;
+}
+
+.clickTym {
+    fill: rgb(255, 48, 64);
+    color: rgb(255, 48, 64);
+}
+
+.desc_save {
+    margin: 0 0 0 329px;
+}
+
+.desc_inner {
+    height: 24px;
 }
 
 .suggestions {
