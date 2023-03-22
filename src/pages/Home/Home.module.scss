@@ -5,7 +5,7 @@
 
 .wrapper {
     display: flex;
-    height: 714px;
+    min-height: 614px;
 }
 
 .news {
@@ -22,13 +22,14 @@
 
 .inner_news {
     width: 470px;
-    height: 878px;
+    min-height: 578px;
     margin: 32px 0 12px;
     padding: 0 0 20px 0;
+    border-bottom: 1px solid #ccc;
 }
 
 .news_form {
-    height: 858px;
+    min-height: 558px;
     display: flex;
     flex-direction: column;
 }
@@ -129,25 +130,25 @@
 // }
 
 .news_form_img {
-    height: 470px;
+    min-height: 470px;
     border-radius: 3px;
     overflow: hidden;
 }
 
 .form_img img {
-    height: 470px;
+    min-height: 470px;
     width: 470px;
 }
 
 // Desc
 .news_form_desc {
-    height: 332px;
+    min-height: auto;
     display: flex;
     flex-direction: column;
 }
 
 .news_form_desc_temp {
-    height: 40px;
+    height: 46px;
     margin: 4px 0 0 0;
     padding: 0 0 6px 0;
 }
@@ -190,6 +191,109 @@
     height: 24px;
 }
 
+//num likes
+.desc_wrapper_likes {
+    height: 18px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.desc_wrapper_likes :hover {
+    cursor: pointer;
+}
+
+.desc_likes {
+    font-size: 1.4rem;
+}
+
+//Content
+
+.desc_content {
+    display: flex;
+    height: auto;
+}
+
+.wrapper_content {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.content {
+    display: flex;
+    margin-bottom: 8px;
+    height: 100%;
+}
+
+.content_name {
+    font-size: 1.4rem;
+    font-weight: 500;
+    width: auto;
+    display: inline;
+}
+
+.content_inside {
+}
+
+.content_name-link {
+    text-decoration: none;
+    color: #262626;
+}
+
+.content_space {
+    display: inline !important;
+}
+
+.content_text h1 {
+    display: inline !important;
+    margin: 0 !important;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.translation {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+//input comment
+.desc_input_comment {
+    display: flex;
+    margin-top: 5px;
+}
+
+.input_comment_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.button_input_comment {
+    border: none;
+    background-color: #fff;
+    width: 100%;
+    height: 18px;
+}
+
+.button_input_comment input {
+    border: none;
+    background-color: #fff;
+    outline: none;
+    width: 100%;
+    font-size: 1.4rem;
+}
+
+.icon_comment {
+    display: flex;
+    align-items: center;
+}
+
+.icon_comment svg {
+    height: 13px;
+}
+
+//suggestions
 .suggestions {
     flex: 1;
 }

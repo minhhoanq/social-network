@@ -171,6 +171,67 @@ function Home() {
                                             </button>
                                         </div>
                                     </div>
+
+                                    <div className={cx('desc_wrapper_likes')}>
+                                        <div className={cx('desc_likes')}>
+                                            <span>23</span> {' likes'}
+                                        </div>
+                                    </div>
+
+                                    <div className={cx('desc_content')}>
+                                        <div className={cx('wrapper_content')}>
+                                            <div className={cx('content')}>
+                                                <div className={cx('content_inside')}>
+                                                    <div className={cx('content_name')}>
+                                                        <Link className={cx('content_name-link')}>set_shoppp</Link>
+                                                    </div>
+                                                    <span className={cx('content_space')}> </span>
+                                                    <span className={cx('content_text')}>
+                                                        <h1>
+                                                            Yếm kaki tông màu xanh trendy.
+                                                            <br />
+                                                            Chi tiết dây đan màu cam nổi bật.
+                                                            <br />
+                                                            Ẻm này có thể mix đẹp với hầu hết các kiểu áo từ áo phông
+                                                            đến sơmi nha.
+                                                            <br />
+                                                            Size S {'<'} 54kg
+                                                            <br />
+                                                            Size M {'<'} 60kg
+                                                            <br />
+                                                            Giá: #330k ạ
+                                                            <br />
+                                                            Có sẵn tại store ạ.
+                                                        </h1>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className={cx('translation')}>See translation</div>
+                                        </div>
+                                    </div>
+
+                                    <div className={cx('desc_input_comment')}>
+                                        <div className={cx('input_comment_wrapper')}>
+                                            <button className={cx('button_input_comment')}>
+                                                <input type={'text'} placeholder={'Add a comment...'} />
+                                            </button>
+                                            <div className={cx('icon_comment')}>
+                                                <svg
+                                                    aria-label="Emoji"
+                                                    class="x1lliihq x1n2onr6"
+                                                    color="rgb(142, 142, 142)"
+                                                    fill="rgb(142, 142, 142)"
+                                                    height="13"
+                                                    role="img"
+                                                    viewBox="0 0 24 24"
+                                                    width="13"
+                                                >
+                                                    <title>Emoji</title>
+                                                    <path d="M15.83 10.997a1.167 1.167 0 1 0 1.167 1.167 1.167 1.167 0 0 0-1.167-1.167Zm-6.5 1.167a1.167 1.167 0 1 0-1.166 1.167 1.167 1.167 0 0 0 1.166-1.167Zm5.163 3.24a3.406 3.406 0 0 1-4.982.007 1 1 0 1 0-1.557 1.256 5.397 5.397 0 0 0 8.09 0 1 1 0 0 0-1.55-1.263ZM12 .503a11.5 11.5 0 1 0 11.5 11.5A11.513 11.513 0 0 0 12 .503Zm0 21a9.5 9.5 0 1 1 9.5-9.5 9.51 9.51 0 0 1-9.5 9.5Z"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
