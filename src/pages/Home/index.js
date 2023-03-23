@@ -237,7 +237,34 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className={cx('suggestions')}>Suggestions</div>
+                <div className={cx('suggestions')}>
+                    <div className={cx('suggestions_user')}>
+                        <div className={cx('suggestions_user_temp')}>
+                            <div className={cx('wrapper_user')}>
+                                <div className={cx('user_wrapper_avatar')}>
+                                    <div className={cx('user_avatar')}>
+                                        <Link className={cx('user_avatar_link')}>
+                                            <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5c92181f98f4500bb0003fbc/44884218_345707102882519_2446069589734326272_n.jpg" />
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className={cx('user_wrapper_username')}>
+                                    <div className={cx('user_username')}>
+                                        <Link className={cx('user_username_link')}>minhoanq_</Link>
+                                    </div>
+                                    <div className={cx('user_name')}>Minh Hoàng</div>
+                                </div>
+                                <div className={cx('user_wrapper_switch')}>
+                                    <button className={cx('switch_btn')}>
+                                        <span className={cx('switch_text')}>Switch</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={cx('suggestions')}></div>
+                    <div className={cx('suggestions')}></div>
+                </div>
             </div>
         </div>
     );
