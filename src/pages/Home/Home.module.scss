@@ -368,8 +368,102 @@
 .switch_btn {
     border: none;
     background-color: #fff;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: #0597f6;
     cursor: pointer;
+}
+
+.suggestions_all {
+    display: flex;
+    height: 19px;
+    width: 318px;
+    padding: 4px 0;
+}
+
+.suggestions_title {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.suggestions_title_text {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #8e8e8e;
+}
+
+.suggestions_title_btn_link {
+    text-decoration: none;
+}
+
+.suggestions_title_btn-text {
+    font-size: 1.2rem;
+    color: #262626;
+    font-weight: 500;
+}
+
+.follow_user {
+    display: flex;
+    height: 34px;
+    align-items: center;
+}
+
+.follow_wrapper_avatar {
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 12px 0 0;
+}
+
+.follow_avatar {
+    height: 32px;
+    width: 32px;
+}
+
+.follow_avatar_link img {
+    height: 32px;
+    width: 32px;
+}
+
+.follow_wrapper_username {
+    flex: 3;
+}
+
+.suggestions_follow {
+    padding: 8px 0;
+}
+
+.follow_username {
+}
+
+.follow_username_link {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #262626;
+}
+
+.follow_name {
+    height: 18px;
+    font-size: 1.2rem;
+    color: #8e8e8e;
+}
+
+.follow_btn {
+    border: none;
+    background-color: #fff;
+    height: 14px;
+}
+
+.follow_link {
+    text-decoration: none;
+}
+
+.follow_text {
+    font-size: 1.2rem;
+    color: #0597f6;
+    font-weight: 500;
 }

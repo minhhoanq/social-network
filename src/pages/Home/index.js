@@ -262,8 +262,137 @@ function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className={cx('suggestions')}></div>
-                    <div className={cx('suggestions')}></div>
+                    <div className={cx('suggestions_all')}>
+                        <div className={cx('suggestions_title')}>
+                            <div className={cx('suggestions_title_text')}>Suggestions for you</div>
+                            <div className={cx('suggestions_title_btn')}>
+                                <Link className={cx('suggestions_title_btn_link')}>
+                                    <span className={cx('suggestions_title_btn-text')}>See All</span>
+                                </Link>
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div className={cx('suggestions_follow')}>
+                        <div className={cx('follow_user')}>
+                            <div className={cx('follow_wrapper_avatar')}>
+                                <div className={cx('follow_avatar')}>
+                                    <Link className={cx('follow_avatar_link')}>
+                                        <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5c92181f98f4500bb0003fbc/44884218_345707102882519_2446069589734326272_n.jpg" />
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className={cx('follow_wrapper_username')}>
+                                <div className={cx('follow_username')}>
+                                    <Link className={cx('follow_username_link')}>minhoanq_</Link>
+                                </div>
+                                <div className={cx('follow_name')}>Suggested for you</div>
+                            </div>
+                            <div className={cx('follow_wrapper_switch')}>
+                                <button className={cx('follow_btn')}>
+                                    <Link className={cx('follow_link')}>
+                                        <span className={cx('follow_text')}>Follow</span>
+                                    </Link>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={cx('suggestions_follow')}>
+                        <div className={cx('follow_user')}>
+                            <div className={cx('follow_wrapper_avatar')}>
+                                <div className={cx('follow_avatar')}>
+                                    <Link className={cx('follow_avatar_link')}>
+                                        <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5c92181f98f4500bb0003fbc/44884218_345707102882519_2446069589734326272_n.jpg" />
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className={cx('follow_wrapper_username')}>
+                                <div className={cx('follow_username')}>
+                                    <Link className={cx('follow_username_link')}>minhoanq_</Link>
+                                </div>
+                                <div className={cx('follow_name')}>Suggested for you</div>
+                            </div>
+                            <div className={cx('follow_wrapper_switch')}>
+                                <button className={cx('follow_btn')}>
+                                    <Link className={cx('follow_link')}>
+                                        <span className={cx('follow_text')}>Follow</span>
+                                    </Link>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={cx('suggestions_follow')}>
+                        <div className={cx('follow_user')}>
+                            <div className={cx('follow_wrapper_avatar')}>
+                                <div className={cx('follow_avatar')}>
+                                    <Link className={cx('follow_avatar_link')}>
+                                        <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5c92181f98f4500bb0003fbc/44884218_345707102882519_2446069589734326272_n.jpg" />
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className={cx('follow_wrapper_username')}>
+                                <div className={cx('follow_username')}>
+                                    <Link className={cx('follow_username_link')}>minhoanq_</Link>
+                                </div>
+                                <div className={cx('follow_name')}>Suggested for you</div>
+                            </div>
+                            <div className={cx('follow_wrapper_switch')}>
+                                <button className={cx('follow_btn')}>
+                                    <Link className={cx('follow_link')}>
+                                        <span className={cx('follow_text')}>Follow</span>
+                                    </Link>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={cx('suggestions_follow')}>
+                        <div className={cx('follow_user')}>
+                            <div className={cx('follow_wrapper_avatar')}>
+                                <div className={cx('follow_avatar')}>
+                                    <Link className={cx('follow_avatar_link')}>
+                                        <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5c92181f98f4500bb0003fbc/44884218_345707102882519_2446069589734326272_n.jpg" />
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className={cx('follow_wrapper_username')}>
+                                <div className={cx('follow_username')}>
+                                    <Link className={cx('follow_username_link')}>minhoanq_</Link>
+                                </div>
+                                <div className={cx('follow_name')}>Suggested for you</div>
+                            </div>
+                            <div className={cx('follow_wrapper_switch')}>
+                                <button className={cx('follow_btn')}>
+                                    <Link className={cx('follow_link')}>
+                                        <span className={cx('follow_text')}>Follow</span>
+                                    </Link>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={cx('suggestions_follow')}>
+                        <div className={cx('follow_user')}>
+                            <div className={cx('follow_wrapper_avatar')}>
+                                <div className={cx('follow_avatar')}>
+                                    <Link className={cx('follow_avatar_link')}>
+                                        <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5c92181f98f4500bb0003fbc/44884218_345707102882519_2446069589734326272_n.jpg" />
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className={cx('follow_wrapper_username')}>
+                                <div className={cx('follow_username')}>
+                                    <Link className={cx('follow_username_link')}>minhoanq_</Link>
+                                </div>
+                                <div className={cx('follow_name')}>Suggested for you</div>
+                            </div>
+                            <div className={cx('follow_wrapper_switch')}>
+                                <button className={cx('follow_btn')}>
+                                    <Link className={cx('follow_link')}>
+                                        <span className={cx('follow_text')}>Follow</span>
+                                    </Link>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
