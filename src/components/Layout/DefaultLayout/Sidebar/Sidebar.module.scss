@@ -1,7 +1,10 @@
+.wrapper_temp {
+    display: flex;
+}
+
 .wrapper {
     width: 245px;
-    min-height: 713px;
-    border: 1px solid #ccc;
+    height: 714px;
 }
 
 .wrapper_components {
@@ -9,6 +12,9 @@
     padding: 8px 12px 20px;
     display: flex;
     flex-direction: column;
+    border: 1px solid #ccc;
+    position: fixed;
+    top: 0;
 }
 
 // logo
@@ -80,6 +86,7 @@
     width: 196px;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .common_logo {
@@ -96,6 +103,17 @@
     display: flex;
     align-items: center;
     padding: 0 0 0 16px;
+}
+
+.comon_dot_notify {
+    height: 10px;
+    width: 10px;
+    background-color: #ff0000;
+    border: 1px solid var(--white-color);
+    border-radius: 10px;
+    position: absolute;
+    top: -1px;
+    left: 18px;
 }
 
 .more {

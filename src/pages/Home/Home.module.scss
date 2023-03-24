@@ -25,7 +25,7 @@
     min-height: 578px;
     margin: 32px 0 12px;
     padding: 0 0 20px 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .news_form {
@@ -41,12 +41,17 @@
     align-items: center;
 }
 
+.header_title :hover .profile_form {
+    display: block;
+}
+
 .header_title {
     height: 40px;
     width: 422px;
     margin: 8px 4px 8px 5px;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .header_title_wrapper_img {
@@ -55,9 +60,50 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #000000;
-    border-radius: 30px;
+    border: 1px solid #000;
     overflow: hidden;
+    border-radius: 30px;
+}
+
+.profile_form {
+    position: absolute;
+    height: 336px;
+    width: 366px;
+    top: 45px;
+    left: 0;
+    display: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 16px 0;
+}
+
+.profile_wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile_avatar {
+    height: 56px;
+    width: 100%;
+    display: flex;
+}
+
+.profile_number {
+    height: 29px;
+    width: 100%;
+}
+
+.profile_img {
+    height: 120px;
+    width: 100%;
+}
+
+.profile_btn {
+    height: 32px;
+    width: 100%;
 }
 
 .header_title_img {
@@ -80,14 +126,14 @@
 }
 
 .header_title_name :hover {
-    color: #8e8e8e;
+    color: var(--text-gray-color);
 }
 
 .header_title_name-link {
     text-decoration: none;
     font-size: 1.4rem;
     font-weight: 500;
-    color: #262626;
+    color: var(--text-black-color);
 }
 
 .title_name_wrapper_time {
@@ -96,14 +142,14 @@
 }
 
 .title_name_dot {
-    border: 2px solid #8e8e8e;
+    border: 2px solid var(--text-gray-color);
     border-radius: 6px;
     margin: 0 4px;
 }
 
 .title_name_time {
     font-size: 1.5rem;
-    color: #8e8e8e;
+    color: var(--text-gray-color);
 }
 
 .header_options {
@@ -114,7 +160,7 @@
     justify-content: center;
     align-items: center;
     border: none;
-    background-color: #fff;
+    background-color: var(--white-color);
 }
 
 .header_options :hover svg {
@@ -161,7 +207,7 @@
 
 .desc_icon {
     border: none;
-    background-color: #fff;
+    background-color: var(--white-color);
     height: 46px;
     padding: 8px;
     display: flex;
@@ -170,12 +216,12 @@
 }
 
 .desc_icon :hover {
-    color: #8e8e8e;
+    color: var(--text-gray-color);
     cursor: pointer;
 }
 
 .desc_reaction :hover {
-    fill: #8e8e8e;
+    fill: var(--text-gray-color);
 }
 
 .clickTym {
@@ -234,7 +280,7 @@
 
 .content_name-link {
     text-decoration: none;
-    color: #262626;
+    color: var(--text-black-color);
 }
 
 .content_space {
@@ -268,14 +314,14 @@
 
 .button_input_comment {
     border: none;
-    background-color: #fff;
+    background-color: var(--white-color);
     width: 100%;
     height: 18px;
 }
 
 .button_input_comment input {
     border: none;
-    background-color: #fff;
+    background-color: var(--white-color);
     outline: none;
     width: 100%;
     font-size: 1.4rem;
@@ -352,13 +398,13 @@
     font-size: 1.3rem;
     font-weight: 500;
     text-decoration: none;
-    color: #262626;
+    color: var(--text-black-color);
 }
 
 .user_name {
     margin: 0 0 0 12px;
     font-size: 1.4rem;
-    color: #8e8e8e;
+    color: var(--text-gray-color);
 }
 
 .user_wrapper_switch {
@@ -367,10 +413,10 @@
 
 .switch_btn {
     border: none;
-    background-color: #fff;
+    background-color: var(--white-color);
     font-size: 1.2rem;
     font-weight: 500;
-    color: #0597f6;
+    color: var(--btn-blue-color);
     cursor: pointer;
 }
 
@@ -391,7 +437,7 @@
 .suggestions_title_text {
     font-size: 1.4rem;
     font-weight: 500;
-    color: #8e8e8e;
+    color: var(--text-gray-color);
 }
 
 .suggestions_title_btn_link {
@@ -400,7 +446,7 @@
 
 .suggestions_title_btn-text {
     font-size: 1.2rem;
-    color: #262626;
+    color: var(--text-black-color);
     font-weight: 500;
 }
 
@@ -443,18 +489,18 @@
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: 500;
-    color: #262626;
+    color: var(--text-black-color);
 }
 
 .follow_name {
     height: 18px;
     font-size: 1.2rem;
-    color: #8e8e8e;
+    color: var(--text-gray-color);
 }
 
 .follow_btn {
     border: none;
-    background-color: #fff;
+    background-color: var(--white-color);
     height: 14px;
 }
 
@@ -464,6 +510,6 @@
 
 .follow_text {
     font-size: 1.2rem;
-    color: #0597f6;
+    color: var(--btn-blue-color);
     font-weight: 500;
 }
