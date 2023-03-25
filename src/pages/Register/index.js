@@ -1,6 +1,5 @@
 import styles from './Register.module.scss';
 import classNames from 'classnames/bind';
-import { AiFillFacebook } from 'react-icons/ai';
 
 const cx = classNames.bind(styles);
 
