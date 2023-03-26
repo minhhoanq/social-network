@@ -1,6 +1,11 @@
 import styles from './Home.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import User from '~/components/User';
+import Button from '~/components/Button';
+import { icon } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFaceAngry } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -34,23 +39,7 @@ function Home() {
 
                                             <div className={cx('profile_form')}>
                                                 <div className={cx('profile_wrapper')}>
-                                                    <div className={cx('profile_avatar')}>
-                                                        <div className={cx('profile_wrapper_avatar')}>
-                                                            <div className={cx('profile_inner_avatar')}>
-                                                                <Link className={cx('profile_avatar_link')}>
-                                                                    <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5c92181f98f4500bb0003fbc/44884218_345707102882519_2446069589734326272_n.jpg" />
-                                                                </Link>
-                                                            </div>
-                                                        </div>
-                                                        <div className={cx('profile_wrapper_username')}>
-                                                            <div className={cx('profile_username')}>
-                                                                <Link className={cx('profile_username_link')}>
-                                                                    set_shoppp
-                                                                </Link>
-                                                            </div>
-                                                            <div className={cx('profile_name')}>STREET STYLE</div>
-                                                        </div>
-                                                    </div>
+                                                    <User />
                                                     <div className={cx('profile_number')}>
                                                         <div className={cx('number_posts')}>
                                                             <div className={cx('number_posts-number')}>8.554</div>
@@ -475,6 +464,13 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <Button primary rounded>
+                Log in
+            </Button>
+
+            <Button text large className={cx('custom')} rightIcon={<FontAwesomeIcon icon={faFaceAngry} />}>
+                UpLoad
+            </Button>
         </div>
     );
 }

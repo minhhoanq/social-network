@@ -1,0 +1,32 @@
+.profile_avatar {
+    height: 56px;
+    width: 100%;
+    display: flex;
+    padding: 0 16px;
+    justify-content: space-between;
+}
+
+.profile_wrapper_username {
+    height: 56px;
+    width: 262px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile_username_link {
+    color: var(--text-black-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.profile_name {
+    font-size: 1.4rem;
+    color: var(--text-gray-color);
+}
+
+.profile_avatar_link img {
+    height: 56px;
+    width: 56px;
+}
