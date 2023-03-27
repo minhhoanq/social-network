@@ -3,13 +3,58 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import User from '~/components/User';
 import Button from '~/components/Button';
-import { icon } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFaceAngry } from '@fortawesome/free-solid-svg-icons';
+import { faEarthAsia, faFaceAngry, faKeyboard, faLanguage, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
 
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'Tiếng Việt',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+            ],
+        },
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faQuestionCircle} />,
+        title: 'FeedBack and helps',
+        to: '/feedback',
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'KeyBroard Shotcuts',
+    },
+];
+
 function Home() {
+    //Handle logic
+    const HandleMenuChange = (menuItem) => {
+        switch (menuItem.type) {
+            case 'language':
+                //Handle logic
+                break;
+
+            default:
+                break;
+        }
+    };
+
     return (
         <div className={cx('main_home')}>
             <div className={cx('wrapper')}>
@@ -467,10 +512,15 @@ function Home() {
             <Button primary rounded>
                 Log in
             </Button>
-
             <Button text large className={cx('custom')} rightIcon={<FontAwesomeIcon icon={faFaceAngry} />}>
                 UpLoad
             </Button>
+
+            <Menu items={MENU_ITEMS} onChange={HandleMenuChange}>
+                <button className={cx('more-btn')}>
+                    <FontAwesomeIcon icon={faEarthAsia} />
+                </button>
+            </Menu>
         </div>
     );
 }
