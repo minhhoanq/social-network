@@ -29,6 +29,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                     onClick={() => {
                         if (isParent) {
                             setHistory((prev) => [...prev, item.children]);
+                            console.log(item.children.data);
                         } else {
                             onChange(item);
                         }
@@ -40,8 +41,9 @@ function Menu({ children, items = [], onChange = defaultFn }) {
 
     return (
         <Tippy
+            offset={[-12, 18]}
             interactive
-            visible
+            trigger="click"
             placement="top-start"
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>

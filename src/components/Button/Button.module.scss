@@ -1,6 +1,6 @@
 .wrapper {
     display: inline-flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     min-width: 100px;
     padding: 9px 16px;
@@ -13,7 +13,7 @@
     user-select: none;
 
     + .wrapper {
-        margin-left: 8px;
+        margin-left: 0;
     }
 
     &.disabled {
@@ -28,7 +28,7 @@
 }
 
 .icon {
-    display: inline-block;
+    display: flex;
     width: 24px;
     text-align: center;
 }
