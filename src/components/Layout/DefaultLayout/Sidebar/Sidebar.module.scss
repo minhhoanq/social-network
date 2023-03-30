@@ -128,11 +128,11 @@
 
 .more_temp_link {
     height: 100%;
-    padding: 0 12px;
-    border-radius: 40px;
+    width: 100%;
+    // padding: 0 12px;
 }
 
-.more_temp :hover {
+.more_temp :hover .icon-menu {
     background-color: #f3f3f3;
 }
 
@@ -142,7 +142,9 @@
     font-size: 2rem;
     display: flex;
     align-items: center;
+    padding: 0 12px;
     background-color: transparent;
+    border-radius: 40px;
 }
 
 .icon-text {

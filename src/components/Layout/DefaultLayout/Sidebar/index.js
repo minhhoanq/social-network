@@ -157,6 +157,7 @@ const MORE_ITEMS = [
     },
     {
         title: 'Switch account',
+        bulkhead: true,
     },
 
     {

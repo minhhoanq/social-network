@@ -41,7 +41,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
 
     return (
         <Tippy
-            offset={[-12, 18]}
+            offset={[0, 18]}
             interactive
             trigger="click"
             placement="top-start"

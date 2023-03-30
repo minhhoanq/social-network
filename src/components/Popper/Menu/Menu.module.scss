@@ -10,6 +10,10 @@
     .not_border_bottom {
         border-bottom: none;
     }
+
+    .bulkhead {
+        border-top: 4px solid var(--border-color);
+    }
 }
 
 .menu_popper {
@@ -22,7 +26,7 @@
     justify-content: space-between;
 
     &:hover {
-        background-color: var(--border-color);
+        background-color: #f3f3f3;
     }
 }
 
