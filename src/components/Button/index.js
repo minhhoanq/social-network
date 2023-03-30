@@ -14,6 +14,7 @@ function Button({
     rounded = false,
     small = false,
     large = false,
+    scale = false,
     leftIcon,
     rightIcon,
     children,
@@ -52,6 +53,7 @@ function Button({
         small,
         large,
         text,
+        scale,
         disabled,
         rounded,
     });
