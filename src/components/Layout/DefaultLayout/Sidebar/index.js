@@ -2,6 +2,7 @@ import styles from './Sidebar.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
 import {
     CreateIcon,
     ExploreIcon,
@@ -303,12 +304,13 @@ function Sidebar() {
                                 <div className={cx('common_wrapper')}>
                                     <div className={cx('common_wrapper_temp')}>
                                         <div className={cx('common_logo')}>
-                                            <img
+                                            <Image
                                                 alt="user1819292918182"
                                                 className={'hCL kVc L4E MIw'}
                                                 fetchpriority="auto"
                                                 loading="auto"
-                                                src="https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg"
+                                                src="ahttps://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg"
+                                                // fallback="https://files.fullstack.edu.vn/f8-prod/user_photos/229674/62e7cae4178f0.jpg"
                                             />
                                         </div>
                                         <div className={cx('common_text')}>Profile</div>
