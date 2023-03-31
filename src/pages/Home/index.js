@@ -4,22 +4,10 @@ import { Link } from 'react-router-dom';
 import User from '~/components/User';
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faEarthAsia,
-    faFaceAngry,
-    faKeyboard,
-    faLanguage,
-    faMagnifyingGlass,
-    faQuestionCircle,
-    faSpinner,
-    faXmark,
-    faXmarkCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEarthAsia, faFaceAngry, faKeyboard, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import Menu from '~/components/Popper/Menu';
 import { CommentIcon, EmojiIcon, HeartIcon, MesageIcon, SavedIcon, ShareIcon } from '~/components/Icons';
-import Tippy from '@tippyjs/react/headless';
-import { useState, useEffect } from 'react';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
+import Search from '~/components/Search';
 
 const cx = classNames.bind(styles);
 
@@ -57,21 +45,12 @@ const MENU_ITEMS = [
 ];
 
 function Home() {
-    const [searchResult, setSearchResult] = useState([]);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2, 3]);
-        }, 3000);
-    }, []);
-
     //Handle logic
     const HandleMenuChange = (menuItem) => {
         switch (menuItem.type) {
             case 'language':
                 //Handle logic
                 break;
-
             default:
                 break;
         }
@@ -79,35 +58,7 @@ function Home() {
 
     return (
         <div className={cx('main_home')}>
-            <Tippy
-                visible={searchResult.length > 0}
-                interactive
-                render={(attrs) => (
-                    <PopperWrapper>
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <h2 className={cx('search-title')}>Accounts</h2>
-                            <User />
-                            <User />
-                            <User />
-                            <User />
-                        </div>
-                    </PopperWrapper>
-                )}
-            >
-                <div className={cx('search')}>
-                    <input className={cx('input')} placeholder="Search accounts and videos" />
-                    <button className={cx('clear')}>
-                        {/* Clear */}
-                        <FontAwesomeIcon icon={faXmarkCircle} />
-                    </button>
-                    {/* loading */}
-                    {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
-                    <button className={cx('search-btn')}>
-                        {/* search */}
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>
-                </div>
-            </Tippy>
+            <Search />
             <div className={cx('wrapper')}>
                 <div className={cx('news')}>
                     <div className={cx('inner')}>
