@@ -4,7 +4,17 @@ import { Link } from 'react-router-dom';
 import User from '~/components/User';
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEarthAsia, faFaceAngry, faKeyboard, faLanguage, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+    faEarthAsia,
+    faFaceAngry,
+    faKeyboard,
+    faLanguage,
+    faMagnifyingGlass,
+    faQuestionCircle,
+    faSpinner,
+    faXmark,
+    faXmarkCircle,
+} from '@fortawesome/free-solid-svg-icons';
 import Menu from '~/components/Popper/Menu';
 import { CommentIcon, EmojiIcon, HeartIcon, MesageIcon, SavedIcon, ShareIcon } from '~/components/Icons';
 
@@ -58,6 +68,19 @@ function Home() {
 
     return (
         <div className={cx('main_home')}>
+            <div className={cx('search')}>
+                <input className={cx('input')} placeholder="Search accounts and videos" />
+                <button className={cx('clear')}>
+                    {/* Clear */}
+                    <FontAwesomeIcon icon={faXmarkCircle} />
+                </button>
+                {/* loading */}
+                {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
+                <button className={cx('search-btn')}>
+                    {/* search */}
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                </button>
+            </div>
             <div className={cx('wrapper')}>
                 <div className={cx('news')}>
                     <div className={cx('inner')}>
