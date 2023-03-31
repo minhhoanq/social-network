@@ -86,7 +86,7 @@ function Home() {
 
                                             <div className={cx('profile_form')}>
                                                 <div className={cx('profile_wrapper')}>
-                                                    <User />
+                                                    {/* <User /> */}
                                                     <div className={cx('profile_number')}>
                                                         <div className={cx('number_posts')}>
                                                             <div className={cx('number_posts-number')}>8.554</div>

@@ -4,23 +4,23 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function User() {
+function User({ data }) {
     return (
-        <div className={cx('profile_avatar')}>
+        <Link to={`/@${data.nickname}`} className={cx('profile_avatar')}>
             <div className={cx('profile_wrapper_avatar')}>
                 <div className={cx('profile_inner_avatar')}>
                     <Link className={cx('profile_avatar_link')}>
-                        <img src="https://ddxcu89oqzgqh.cloudfront.net/uploads/account/avatar/5c92181f98f4500bb0003fbc/44884218_345707102882519_2446069589734326272_n.jpg" />
+                        <img src={data.avatar} alt={data.full_name} />
                     </Link>
                 </div>
             </div>
             <div className={cx('profile_wrapper_username')}>
                 <div className={cx('profile_username')}>
-                    <Link className={cx('profile_username_link')}>set_shoppp</Link>
+                    <Link className={cx('profile_username_link')}>{data.nickname}</Link>
                 </div>
-                <div className={cx('profile_name')}>STREET STYLE</div>
+                <div className={cx('profile_name')}>{data.full_name}</div>
             </div>
-        </div>
+        </Link>
     );
 }
 

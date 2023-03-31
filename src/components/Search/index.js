@@ -13,15 +13,29 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState([true]);
+    const [loading, setLoading] = useState(false);
 
     //useRef
     const inputRef = useRef();
 
     useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2, 3]);
-        }, 3000);
-    }, []);
+        if (!searchValue.trim()) {
+            setSearchResult([]);
+            return;
+        }
+
+        setLoading(true);
+
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+            .then((res) => res.json())
+            .then((res) => {
+                setSearchResult(res.data);
+                setLoading(false);
+            })
+            .catch(() => {
+                setLoading(false);
+            });
+    }, [searchValue]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -38,15 +52,14 @@ function Search() {
             visible={showResult && searchResult.length > 0}
             interactive
             render={(attrs) => (
-                <PopperWrapper>
-                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                    <PopperWrapper>
                         <h2 className={cx('search-title')}>Accounts</h2>
-                        <User />
-                        <User />
-                        <User />
-                        <User />
-                    </div>
-                </PopperWrapper>
+                        {searchResult.map((result) => (
+                            <User key={result.id} data={result} />
+                        ))}
+                    </PopperWrapper>
+                </div>
             )}
             onClickOutside={handleHideResult}
         >
@@ -59,15 +72,15 @@ function Search() {
                     onChange={(e) => setSearchValue(e.target.value)}
                     onFocus={() => setShowResult(true)}
                 />
-                {!!searchValue && (
+                {!!searchValue && !loading && (
                     <button className={cx('clear')} onClick={handleClear}>
-                        {/* Clear */}
                         <FontAwesomeIcon icon={faXmarkCircle} />
                     </button>
                 )}
 
                 {/* loading */}
-                {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
+                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+
                 <button className={cx('search-btn')}>
                     {/* search */}
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
