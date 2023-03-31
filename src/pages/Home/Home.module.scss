@@ -4,11 +4,14 @@
 }
 
 //search
+.search,
+.search-result {
+    width: 361px;
+}
 
 .search {
     position: relative;
     margin-top: 12px;
-    width: 361px;
     height: var(--search-height);
     background-color: rgba(22, 24, 35, 0.06);
     border-radius: 92px;

@@ -1,9 +1,13 @@
 .profile_avatar {
-    height: 56px;
+    height: 73px;
     width: 100%;
     display: flex;
-    padding: 0 16px;
+    padding: 9px 16px;
     justify-content: space-between;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
 }
 
 .profile_wrapper_username {
