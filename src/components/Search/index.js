@@ -2,6 +2,7 @@ import { Wrapper as PopperWrapper } from '../Popper';
 import Tippy from '@tippyjs/react/headless';
 import styles from './Search.module.scss';
 import User from '../User';
+import * as searchServices from '~/apiServices/searchServices';
 import { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
@@ -28,16 +29,15 @@ function Search() {
         }
 
         setLoading(true);
+        const fetchApi = async () => {
+            setLoading(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-            });
+            const result = await searchServices.search(debounced);
+            setSearchResult(result);
+
+            setLoading(false);
+        };
+        fetchApi();
     }, [debounced]);
 
     const handleClear = () => {
