@@ -5,6 +5,7 @@
 .wrapper {
     width: 245px;
     height: 714px;
+    z-index: 10;
 }
 
 .wrapper_components {
@@ -15,6 +16,8 @@
     border: 1px solid #ccc;
     position: fixed;
     top: 0;
+    left: 0;
+    background-color: var(--white-color);
 }
 
 // logo

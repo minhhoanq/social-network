@@ -89,6 +89,91 @@ const MORE_ITEMS = [
             </svg>
         ),
         title: 'Your activity',
+        children: {
+            title: 'Your activity',
+            data: [
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'en',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+            ],
+        },
     },
 
     {

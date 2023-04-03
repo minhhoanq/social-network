@@ -32,6 +32,25 @@ body {
     font: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    overflow-x: hidden;
+    overflow-y: overlay;
+}
+
+// scroll bar
+
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.2);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 button,
