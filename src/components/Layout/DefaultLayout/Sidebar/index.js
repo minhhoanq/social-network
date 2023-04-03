@@ -14,6 +14,7 @@ import {
     MoreIcon,
 } from '~/components/Icons';
 import Button from '~/components/Button';
+import routesConfig from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -222,7 +223,7 @@ function Sidebar() {
                     <div className={cx('logo')}>
                         <div className={cx('logo_space')}>
                             <div className={cx('logo_wrapper-link')}>
-                                <Link to={''} className={cx('logo_link')}>
+                                <Link to={routesConfig.home} className={cx('logo_link')}>
                                     <div className={cx('logo_wrapper_svg')}>
                                         <div className={cx('logo_svg')}>
                                             <svg

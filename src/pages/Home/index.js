@@ -1,7 +1,6 @@
 import styles from './Home.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-import User from '~/components/User';
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEarthAsia, faFaceAngry, faKeyboard, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
