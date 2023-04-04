@@ -32,7 +32,7 @@ const MORE_ITEMS = [
         icon: <YouractivityIcon />,
         title: 'Your activity',
         children: {
-            title: 'Your activity',
+            title: 'Language    ',
             data: [
                 {
                     type: 'language',

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './User.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
@@ -23,5 +24,9 @@ function User({ data }) {
         </Link>
     );
 }
+
+User.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 
 export default User;
