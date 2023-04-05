@@ -355,12 +355,13 @@ export const CreateActiveIcon = ({ width = '2.4rem', height = '2.4rem', classNam
     </svg>
 );
 
+//More Icon
 export const MoreIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         aria-label="Settings"
         className={className}
         color="rgb(38, 38, 38)"
-        fill="rgb(38, 38, 38)"
+        fill="currentColor"
         height={height}
         width={width}
         role="img"
@@ -396,6 +397,21 @@ export const MoreIcon = ({ width = '2.4rem', height = '2.4rem', className }) => 
             y1="20"
             y2="20"
         ></line>
+    </svg>
+);
+
+export const MoreActiveIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        aria-label="Settings"
+        className={className}
+        color="rgb(0, 0, 0)"
+        fill="rgb(0, 0, 0)"
+        height={height}
+        width={width}
+        role="img"
+        viewBox="0 0 24 24"
+    >
+        <path d="M3.5 6.5h17a1.5 1.5 0 0 0 0-3h-17a1.5 1.5 0 0 0 0 3Zm17 4h-17a1.5 1.5 0 0 0 0 3h17a1.5 1.5 0 0 0 0-3Zm0 7h-17a1.5 1.5 0 0 0 0 3h17a1.5 1.5 0 0 0 0-3Z"></path>
     </svg>
 );
 

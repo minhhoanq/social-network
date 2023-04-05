@@ -10,20 +10,158 @@ import {
     HomeIcon,
     MessagesActiveIcon,
     MessagesIcon,
+    MoreActiveIcon,
+    MoreIcon,
     NotificationsActiveIcon,
     NotificationsIcon,
     ReelsActiveIcon,
     ReelsIcon,
+    ReportAProblemIcon,
+    SavedMoreIcon,
     SearchActiveIcon,
     SearchIcon,
+    SettingsIcon,
+    ThemeIcon,
+    YouractivityIcon,
 } from '~/components/Icons';
 
-import config from '~/config/routes';
 import routes from '~/config/routes';
+import Menu from '~/components/Popper/Menu/Menu';
 
 const cx = classNames.bind(styles);
 
+const MORE_ITEMS = [
+    {
+        icon: <SettingsIcon />,
+        title: 'Settings',
+    },
+    {
+        icon: <YouractivityIcon />,
+        title: 'Your activity',
+        children: {
+            title: 'Language    ',
+            data: [
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'en',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'Tiếng việt',
+                    code: 'vi',
+                },
+                {
+                    type: 'language',
+                    title: 'English',
+                    code: 'vi',
+                },
+            ],
+        },
+    },
+
+    {
+        icon: <SavedMoreIcon />,
+        title: 'Saved',
+    },
+    {
+        icon: <ThemeIcon />,
+        title: 'Switch appearance',
+    },
+
+    {
+        icon: <ReportAProblemIcon />,
+        title: 'Report a problem',
+    },
+    {
+        title: 'Switch account',
+        bulkhead: true,
+    },
+
+    {
+        title: 'Log out',
+        not_border_bottom: true,
+    },
+];
+
 function Sidebar() {
+    //Handle logic
+    const HandleMenuChange = (menuItem) => {
+        switch (menuItem.type) {
+            case 'language':
+                //Handle logic
+                break;
+
+            default:
+                break;
+        }
+    };
+
     return (
         <aside className={cx('wrapper')}>
             <div className={cx('logo')}>
@@ -96,8 +234,26 @@ function Sidebar() {
                     icon={<CreateIcon />}
                     activeIcon={<CreateActiveIcon />}
                 />
-                <MenuSidebarItem title={'Profile'} to={routes.profile} icon={<HomeIcon />} />
+                <MenuSidebarItem
+                    title={'Profile'}
+                    to={routes.profile}
+                    icon={<HomeIcon />}
+                    activeIcon={<HomeActiveIcon />}
+                />
             </MenuSidebar>
+
+            {/* more */}
+            <Menu items={MORE_ITEMS} onChange={HandleMenuChange}>
+                <button className={cx('menu-button')}>
+                    <span className={cx('icon_more')}>
+                        <MoreIcon />
+                    </span>
+                    <span className={cx('icon_more-active')}>
+                        <MoreActiveIcon />
+                    </span>
+                    <span className={cx('text-more')}>More</span>
+                </button>
+            </Menu>
         </aside>
     );
 }

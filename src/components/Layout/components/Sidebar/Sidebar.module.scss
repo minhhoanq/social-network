@@ -1,9 +1,17 @@
 .wrapper {
     width: 245px;
+    height: 100vh;
     border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     padding: 8px 12px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.menu_sidebar {
+    height: 600px;
 }
 
 .logo {
@@ -26,4 +34,50 @@
 
 .space {
     height: 1px;
+}
+
+.menu-button {
+    height: 48px;
+    width: 220px;
+    border-radius: 40px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin: 4px 0;
+
+    &:hover {
+        background-color: var(--border-color);
+        svg {
+            scale: 1.05;
+        }
+        cursor: pointer;
+    }
+
+    &:focus {
+        .icon_more {
+            display: none;
+        }
+        .icon_more-active {
+            display: flex;
+        }
+
+        .text-more {
+            font-weight: 600;
+        }
+    }
+}
+
+.icon_more,
+.icon_more-active {
+    display: flex;
+}
+
+.icon_more-active {
+    display: none;
+}
+
+.text-more {
+    font-size: 1.6rem;
+    padding: 16px;
 }
