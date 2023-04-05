@@ -1,0 +1,29 @@
+.wrapper {
+    width: 245px;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px 20px;
+}
+
+.logo {
+    width: 220px;
+    height: 92px;
+}
+
+.logo-svg {
+    width: 220px;
+    height: 73px;
+    padding: 25px 12px 16px;
+    margin: 0 0 19px 0;
+    display: flex;
+    align-items: center;
+}
+
+.logo-svg svg {
+    margin-top: 11px;
+}
+
+.space {
+    height: 1px;
+}

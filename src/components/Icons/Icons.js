@@ -18,12 +18,12 @@ export const InstagramTextIcon = ({ width = '10.3rem', height = '2.9rem', classN
     </svg>
 );
 
+//Home Icon
 export const HomeIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         aria-label="Home"
         className={className}
-        color="rgb(38, 38, 38)"
-        fill="rgb(38, 38, 38)"
+        fill="currentColor"
         height={height}
         width={width}
         role="img"
@@ -39,6 +39,21 @@ export const HomeIcon = ({ width = '2.4rem', height = '2.4rem', className }) => 
     </svg>
 );
 
+export const HomeActiveIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        aria-label="Home"
+        className={className}
+        fill="currentColor"
+        height={height}
+        width={width}
+        role="img"
+        viewBox="0 0 24 24"
+    >
+        <path d="M22 23h-6.001a1 1 0 0 1-1-1v-5.455a2.997 2.997 0 1 0-5.993 0V22a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V11.543a1.002 1.002 0 0 1 .31-.724l10-9.543a1.001 1.001 0 0 1 1.38 0l10 9.543a1.002 1.002 0 0 1 .31.724V22a1 1 0 0 1-1 1Z"></path>
+    </svg>
+);
+
+//Search Icon
 export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         aria-label="Search"
@@ -70,6 +85,40 @@ export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className }) =
     </svg>
 );
 
+export const SearchActiveIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        aria-label="Search"
+        className={className}
+        color="rgb(0, 0, 0)"
+        fill="rgb(0, 0, 0)"
+        height={height}
+        width={width}
+        role="img"
+        viewBox="0 0 24 24"
+    >
+        <path
+            d="M18.5 10.5a8 8 0 1 1-8-8 8 8 0 0 1 8 8Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+        ></path>
+        <line
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            x1="16.511"
+            x2="21.643"
+            y1="16.511"
+            y2="21.643"
+        ></line>
+    </svg>
+);
+
+//Explore Icon
 export const ExploreIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         aria-label="Explore"
@@ -101,6 +150,22 @@ export const ExploreIcon = ({ width = '2.4rem', height = '2.4rem', className }) 
     </svg>
 );
 
+export const ExploreActiveIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        aria-label="Explore"
+        className={className}
+        color="rgb(0, 0, 0)"
+        fill="rgb(0, 0, 0)"
+        height={height}
+        width={width}
+        role="img"
+        viewBox="0 0 24 24"
+    >
+        <path d="m13.173 13.164 1.491-3.829-3.83 1.49ZM12.001.5a11.5 11.5 0 1 0 11.5 11.5A11.513 11.513 0 0 0 12.001.5Zm5.35 7.443-2.478 6.369a1 1 0 0 1-.57.569l-6.36 2.47a1 1 0 0 1-1.294-1.294l2.48-6.369a1 1 0 0 1 .57-.569l6.359-2.47a1 1 0 0 1 1.294 1.294Z"></path>
+    </svg>
+);
+
+//Reel Icon
 export const ReelsIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         aria-label="Reels"
@@ -144,6 +209,25 @@ export const ReelsIcon = ({ width = '2.4rem', height = '2.4rem', className }) =>
     </svg>
 );
 
+export const ReelsActiveIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        aria-label="Reels"
+        className={className}
+        color="rgb(0, 0, 0)"
+        fill="rgb(0, 0, 0)"
+        height={height}
+        width={width}
+        role="img"
+        viewBox="0 0 24 24"
+    >
+        <path
+            d="m12.823 1 2.974 5.002h-5.58l-2.65-4.971c.206-.013.419-.022.642-.027L8.55 1Zm2.327 0h.298c3.06 0 4.468.754 5.64 1.887a6.007 6.007 0 0 1 1.596 2.82l.07.295h-4.629L15.15 1Zm-9.667.377L7.95 6.002H1.244a6.01 6.01 0 0 1 3.942-4.53Zm9.735 12.834-4.545-2.624a.909.909 0 0 0-1.356.668l-.008.12v5.248a.91.91 0 0 0 1.255.84l.109-.053 4.545-2.624a.909.909 0 0 0 .1-1.507l-.1-.068-4.545-2.624Zm-14.2-6.209h21.964l.015.36.003.189v6.899c0 3.061-.755 4.469-1.888 5.64-1.151 1.114-2.5 1.856-5.33 1.909l-.334.003H8.551c-3.06 0-4.467-.755-5.64-1.889-1.114-1.15-1.854-2.498-1.908-5.33L1 15.45V8.551l.003-.189Z"
+            fill-rule="evenodd"
+        ></path>
+    </svg>
+);
+
+//Message Icon
 export const MessagesIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         aria-label="Messenger"
@@ -167,6 +251,23 @@ export const MessagesIcon = ({ width = '2.4rem', height = '2.4rem', className })
     </svg>
 );
 
+export const MessagesActiveIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        aria-label="Messenger"
+        className={className}
+        color="rgb(0, 0, 0)"
+        fill="rgb(0, 0, 0)"
+        height={height}
+        width={width}
+        role="img"
+        viewBox="0 0 24 24"
+    >
+        <title>Messenger</title>
+        <path d="M12.003 1.131a10.487 10.487 0 0 0-10.87 10.57 10.194 10.194 0 0 0 3.412 7.771l.054 1.78a1.67 1.67 0 0 0 2.342 1.476l1.935-.872a11.767 11.767 0 0 0 3.127.416 10.488 10.488 0 0 0 10.87-10.57 10.487 10.487 0 0 0-10.87-10.57Zm5.786 9.001-2.566 3.983a1.577 1.577 0 0 1-2.278.42l-2.452-1.84a.63.63 0 0 0-.759.002l-2.556 2.049a.659.659 0 0 1-.96-.874L8.783 9.89a1.576 1.576 0 0 1 2.277-.42l2.453 1.84a.63.63 0 0 0 .758-.003l2.556-2.05a.659.659 0 0 1 .961.874Z"></path>
+    </svg>
+);
+
+//Notification Icon
 export const NotificationsIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         aria-label="Notifications"
@@ -182,6 +283,22 @@ export const NotificationsIcon = ({ width = '2.4rem', height = '2.4rem', classNa
     </svg>
 );
 
+export const NotificationsActiveIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        aria-label="Notifications"
+        className={className}
+        color="rgb(0, 0, 0)"
+        fill="rgb(0, 0, 0)"
+        height="24"
+        width="24"
+        role="img"
+        viewBox="0 0 48 48"
+    >
+        <path d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+    </svg>
+);
+
+//Create Icon
 export const CreateIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         aria-label="New post"
@@ -220,6 +337,21 @@ export const CreateIcon = ({ width = '2.4rem', height = '2.4rem', className }) =
             y1="6.545"
             y2="17.455"
         ></line>
+    </svg>
+);
+
+export const CreateActiveIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        aria-label="New post"
+        className={className}
+        color="rgb(0, 0, 0)"
+        fill="rgb(0, 0, 0)"
+        height={height}
+        width={width}
+        role="img"
+        viewBox="0 0 24 24"
+    >
+        <path d="m12.003 5.545-.117.006-.112.02a1 1 0 0 0-.764.857l-.007.117V11H6.544l-.116.007a1 1 0 0 0-.877.876L5.545 12l.007.117a1 1 0 0 0 .877.876l.116.007h4.457l.001 4.454.007.116a1 1 0 0 0 .876.877l.117.007.117-.007a1 1 0 0 0 .876-.877l.007-.116V13h4.452l.116-.007a1 1 0 0 0 .877-.876l.007-.117-.007-.117a1 1 0 0 0-.877-.876L17.455 11h-4.453l.001-4.455-.007-.117a1 1 0 0 0-.876-.877ZM8.552.999h6.896c2.754 0 4.285.579 5.664 1.912 1.255 1.297 1.838 2.758 1.885 5.302L23 8.55v6.898c0 2.755-.578 4.286-1.912 5.664-1.298 1.255-2.759 1.838-5.302 1.885l-.338.003H8.552c-2.754 0-4.285-.579-5.664-1.912-1.255-1.297-1.839-2.758-1.885-5.302L1 15.45V8.551c0-2.754.579-4.286 1.912-5.664C4.21 1.633 5.67 1.05 8.214 1.002L8.552 1Z"></path>
     </svg>
 );
 
