@@ -1,0 +1,23 @@
+.avatar {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    justify-content: space-between;
+    margin-right: 12px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.nickname {
+    font-size: 1.4rem;
+    color: var(--text-black-color);
+    font-weight: 500;
+}
+
+.name {
+    font-size: 1.2rem;
+    color: var(--text-gray-color);
+}
