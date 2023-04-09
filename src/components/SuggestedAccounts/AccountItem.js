@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './SuggestedAccounts.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -20,7 +19,7 @@ function AccountItem() {
 
     return (
         <div>
-            <Tippy interactive delay={[800, 0]} placement="bottom" render={renderPreview}>
+            <Tippy offset={[30, 0]} interactive delay={[800, 0]} placement="bottom" render={renderPreview}>
                 <div className={cx('account-item')}>
                     <img
                         className={cx('avatar')}

@@ -676,3 +676,55 @@ export const ReportAProblemIcon = ({ width = '2.4rem', height = '2.4rem', classN
         <path d="M18.001 1h-12a5.006 5.006 0 0 0-5 5v9.005a5.006 5.006 0 0 0 5 5h2.514l2.789 2.712a1 1 0 0 0 1.394 0l2.787-2.712h2.516a5.006 5.006 0 0 0 5-5V6a5.006 5.006 0 0 0-5-5Zm3 14.005a3.003 3.003 0 0 1-3 3h-2.936a1 1 0 0 0-.79.387l-2.274 2.212-2.276-2.212a1 1 0 0 0-.79-.387H6a3.003 3.003 0 0 1-3-3V6a3.003 3.003 0 0 1 3-3h12a3.003 3.003 0 0 1 3 3Zm-9-1.66a1.229 1.229 0 1 0 1.228 1.228A1.23 1.23 0 0 0 12 13.344Zm0-8.117a1.274 1.274 0 0 0-.933.396 1.108 1.108 0 0 0-.3.838l.347 4.861a.892.892 0 0 0 1.77 0l.348-4.86a1.106 1.106 0 0 0-.3-.838A1.272 1.272 0 0 0 12 5.228Z"></path>
     </svg>
 );
+
+export const AddFollowIcon = ({ width = '2.0rem', height = '2.0rem', className }) => (
+    <svg
+        aria-label=""
+        className={className}
+        color="rgb(255, 255, 255)"
+        fill="rgb(255, 255, 255)"
+        height={height}
+        width={width}
+        role="img"
+        viewBox="0 0 24 24"
+    >
+        <title></title>
+        <path
+            d="M19.006 8.252a3.5 3.5 0 1 1-3.499-3.5 3.5 3.5 0 0 1 3.5 3.5Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-miterlimit="10"
+            stroke-width="2"
+        ></path>
+        <path
+            d="M22 19.5v-.447a4.05 4.05 0 0 0-4.05-4.049h-4.906a4.05 4.05 0 0 0-4.049 4.049v.447"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+        ></path>
+        <line
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-miterlimit="10"
+            stroke-width="2"
+            x1="5.001"
+            x2="5.001"
+            y1="7.998"
+            y2="14.003"
+        ></line>
+        <line
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-miterlimit="10"
+            stroke-width="2"
+            x1="8.004"
+            x2="2.003"
+            y1="11"
+            y2="11"
+        ></line>
+    </svg>
+);
