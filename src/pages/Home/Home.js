@@ -8,6 +8,8 @@ import Menu from '~/components/Popper/Menu';
 import { CommentIcon, EmojiIcon, HeartIcon, MesageIcon, MorePostIcon, SavedIcon, ShareIcon } from '~/components/Icons';
 import Search from '~/components/Search';
 import SuggestedAccounts from '~/components/SuggestedAccounts';
+import { useEffect, useState } from 'react';
+import * as suggestedService from '~/apiServices/suggestedService';
 
 const cx = classNames.bind(styles);
 
@@ -45,6 +47,17 @@ const MENU_ITEMS = [
 ];
 
 function Home() {
+    const [suggestedUser, setSuggestedUser] = useState([]);
+
+    useEffect(() => {
+        const fetchApi = async () => {
+            const result = await suggestedService.getSuggested();
+            console.log(result);
+            setSuggestedUser(result);
+        };
+        fetchApi();
+    }, []);
+
     //Handle logic
     const HandleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -233,7 +246,7 @@ function Home() {
                     </div>
                 </div>
                 {/* SuggestedAccounts */}
-                <SuggestedAccounts label="Suggestions for you" />
+                <SuggestedAccounts label="Suggestions for you" data={suggestedUser} />
             </div>
             <Button primary rounded>
                 Log in

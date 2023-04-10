@@ -6,12 +6,12 @@ import AccountPreview from './AccountPreview/AccountPreview';
 
 const cx = classNames.bind(styles);
 
-function AccountItem() {
+function AccountItem({ data }) {
     const renderPreview = (props) => {
         return (
             <div className={cx('preview')} tabIndex="-1" {...props}>
                 <PopperWrapper>
-                    <AccountPreview />
+                    <AccountPreview data={data} />
                 </PopperWrapper>
             </div>
         );
@@ -27,8 +27,8 @@ function AccountItem() {
                         src="https://kenh14cdn.com/2019/9/2/6644667323865452016205704822306513987975655n-15674195344681116486461.jpg"
                     />
                     <div className={cx('item-info')}>
-                        <p className={cx('nickname')}>minhoanq_</p>
-                        <p className={cx('name')}>Minh Hoàng</p>
+                        <p className={cx('nickname')}>{data.username}</p>
+                        <p className={cx('name')}>{data.name}</p>
                     </div>
                     <button className={cx('button')}>Follow</button>
                 </div>

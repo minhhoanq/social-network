@@ -5,7 +5,7 @@ import { AddFollowIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
-function AccountPreview() {
+function AccountPreview({ data }) {
     return (
         <div className={cx('wrapper')}>
             <header className={cx('header')}>
@@ -15,8 +15,8 @@ function AccountPreview() {
                     src="https://kenh14cdn.com/2019/9/2/6644667323865452016205704822306513987975655n-15674195344681116486461.jpg"
                 />
                 <div className={cx('item-info')}>
-                    <p className={cx('nickname')}>vox.ngoc.traan</p>
-                    <p className={cx('name')}>Võ Ngọc Trân</p>
+                    <p className={cx('nickname')}>{data.username}</p>
+                    <p className={cx('name')}>{data.name}</p>
                 </div>
             </header>
             <div className={cx('analytics')}>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const request = axios.create({
-    baseURL: 'https://tiktok.fullstack.edu.vn/api/',
+    baseURL: 'https://jsonplaceholder.typicode.com/',
 });
 
 export const get = async (path, option = {}) => {

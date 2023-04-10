@@ -11,15 +11,15 @@ function User({ data }) {
             <div className={cx('profile_wrapper_avatar')}>
                 <div className={cx('profile_inner_avatar')}>
                     <Link className={cx('profile_avatar_link')}>
-                        <img src={data.avatar} alt={data.full_name} />
+                        <img src={data.avatar} alt={data.name} />
                     </Link>
                 </div>
             </div>
             <div className={cx('profile_wrapper_username')}>
                 <div className={cx('profile_username')}>
-                    <Link className={cx('profile_username_link')}>{data.nickname}</Link>
+                    <Link className={cx('profile_username_link')}>{data.username}</Link>
                 </div>
-                <div className={cx('profile_name')}>{data.full_name}</div>
+                <div className={cx('profile_name')}>{data.name}</div>
             </div>
         </Link>
     );
