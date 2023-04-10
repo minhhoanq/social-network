@@ -27,6 +27,8 @@ import {
 
 import routes from '~/config/routes';
 import Menu from '~/components/Popper/Menu/Menu';
+import { useState } from 'react';
+import Tippy from '@tippyjs/react';
 
 const cx = classNames.bind(styles);
 
@@ -150,6 +152,8 @@ const MORE_ITEMS = [
 ];
 
 function Sidebar() {
+    const [routeBtn, setRouteBtn] = useState('');
+
     //Handle logic
     const HandleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -188,9 +192,10 @@ function Sidebar() {
             <MenuSidebar className={cx('menu_sidebar')}>
                 <MenuSidebarItem title={'Home'} to={routes.home} icon={<HomeIcon />} activeIcon={<HomeActiveIcon />} />
                 <div className={cx('space')} />
+
                 <MenuSidebarItem
                     title={'Search'}
-                    to={routes.following}
+                    to={routes.search}
                     icon={<SearchIcon />}
                     activeIcon={<SearchActiveIcon />}
                 />

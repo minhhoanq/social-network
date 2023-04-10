@@ -17,7 +17,7 @@ const publicRoutes = [
     { path: routesConfig.following, component: Following },
     { path: routesConfig.profile, component: Profile },
     { path: routesConfig.upload, component: Upload, layout: HeaderOnly },
-    { path: routesConfig.search, component: Search, layout: null },
+    { path: routesConfig.search, component: Home },
     { path: routesConfig.login, component: Login, layout: null },
     { path: routesConfig.register, component: Register, layout: null },
     { path: routesConfig.forgotpassword, component: ForgotPassword, layout: null },
