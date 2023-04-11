@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEarthAsia, faFaceAngry, faKeyboard, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import Menu from '~/components/Popper/Menu';
 import { CommentIcon, EmojiIcon, HeartIcon, MesageIcon, MorePostIcon, SavedIcon, ShareIcon } from '~/components/Icons';
-import Search from '~/components/Search';
+
 import SuggestedAccounts from '~/components/SuggestedAccounts';
 import { useEffect, useState } from 'react';
 import * as suggestedService from '~/apiServices/suggestedService';
@@ -71,10 +71,9 @@ function Home() {
 
     return (
         <div className={cx('main_home')}>
-            <Search />
             <div className={cx('wrapper')}>
                 <div className={cx('news')}>
-                    <div className={cx('inner')}>
+                    {/* <div className={cx('inner')}>
                         <div className={cx('inner_news')}>
                             <div className={cx('news_form')}>
                                 <div className={cx('news_form_header')}>
@@ -99,7 +98,6 @@ function Home() {
 
                                             <div className={cx('profile_form')}>
                                                 <div className={cx('profile_wrapper')}>
-                                                    {/* <User /> */}
                                                     <div className={cx('profile_number')}>
                                                         <div className={cx('number_posts')}>
                                                             <div className={cx('number_posts-number')}>8.554</div>
@@ -243,17 +241,11 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 {/* SuggestedAccounts */}
                 <SuggestedAccounts label="Suggestions for you" data={suggestedUser} />
             </div>
-            <Button primary rounded>
-                Log in
-            </Button>
-            <Button text large className={cx('custom')} rightIcon={<FontAwesomeIcon icon={faFaceAngry} />}>
-                UpLoad
-            </Button>
 
             <Menu items={MENU_ITEMS} onChange={HandleMenuChange}>
                 <button className={cx('more-btn')}>
