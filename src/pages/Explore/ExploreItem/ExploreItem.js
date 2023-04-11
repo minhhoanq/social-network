@@ -3,13 +3,19 @@ import styles from './ExploreItem.module.scss';
 
 const cx = classNames.bind(styles);
 
-function ExploreItem() {
+function ExploreItem({ data }) {
     return (
         <div className={cx('image-grid')}>
-            <img
-                // classNames="item-1 image-grid-col-2 image-grid-row-2"
+            {data.map((data, key) => (
+                <img
+                    // className={cx('item-1')}
+                    key={key}
+                    src="https://disantrangan.vn/wp-content/uploads/2021/06/pho_co_ha_noi_01-2.jpg"
+                />
+            ))}
+            {/* <img
                 className={cx('item-1')}
-                src="https://img6.thuthuatphanmem.vn/uploads/2022/02/09/anh-thanh-pho-ho-chi-minh-lung-linh-mau-sac_031028495.jpeg"
+                src={data.id}
                 alt="architecture"
             />
             <img
@@ -34,7 +40,6 @@ function ExploreItem() {
             />
 
             <img
-                // classNames="item-1 image-grid-col-2 image-grid-row-2"
                 className={cx('item-6')}
                 src="https://img6.thuthuatphanmem.vn/uploads/2022/02/09/anh-thanh-pho-ho-chi-minh-lung-linh-mau-sac_031028495.jpeg"
                 alt="architecture"
@@ -58,7 +63,7 @@ function ExploreItem() {
                 className={cx('item-10')}
                 src="https://file1.dangcongsan.vn/data/0/images/2022/10/24/upload_37/abdffce43449f317aa58.jpg"
                 alt="architecture"
-            />
+            /> */}
         </div>
     );
 }
