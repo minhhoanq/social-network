@@ -1,18 +1,26 @@
 import classNames from 'classnames/bind';
 import styles from './ExploreItem.module.scss';
+import Modal from '~/components/Modal/Modal';
+import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function ExploreItem({ data }) {
+    const [open, setOpen] = useState(false);
+
     return (
         <div className={cx('image-grid')}>
             {data.map((data, key) => (
-                <img
-                    // className={cx('item-1')}
-                    key={key}
-                    src="https://disantrangan.vn/wp-content/uploads/2021/06/pho_co_ha_noi_01-2.jpg"
-                />
+                <button onClick={() => setOpen(true)} className={cx('image-btn')}>
+                    <img
+                        // className={cx('item-1')}
+                        // key={key}
+                        src="https://disantrangan.vn/wp-content/uploads/2021/06/pho_co_ha_noi_01-2.jpg"
+                    />
+                </button>
             ))}
+
+            {open && <Modal onClose={() => setOpen(false)}></Modal>}
             {/* <img
                 className={cx('item-1')}
                 src={data.id}

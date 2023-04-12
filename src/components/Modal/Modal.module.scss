@@ -1,0 +1,42 @@
+.modal {
+    background-color: #fff;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    overflow: auto;
+}
+
+.btn {
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.inner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: var(--white-color);
+    height: 712px;
+    width: calc(569.6px * 1.9);
+    border-radius: 4px;
+    flex-basis: 569.6px;
+}
