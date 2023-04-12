@@ -2,25 +2,32 @@ import classNames from 'classnames/bind';
 import styles from './ExploreItem.module.scss';
 import Modal from '~/components/Modal/Modal';
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const cx = classNames.bind(styles);
 
 function ExploreItem({ data }) {
     const [open, setOpen] = useState(false);
+    const [thisPic, setThisPic] = useState('');
+
+    const setClickPicture = (data) => {
+        setOpen(true);
+        setThisPic(data.url);
+    };
 
     return (
         <div className={cx('image-grid')}>
             {data.map((data, key) => (
-                <button onClick={() => setOpen(true)} className={cx('image-btn')}>
+                <button onClick={() => setClickPicture(data)} className={cx('image-btn')}>
                     <img
                         // className={cx('item-1')}
-                        // key={key}
-                        src="https://disantrangan.vn/wp-content/uploads/2021/06/pho_co_ha_noi_01-2.jpg"
+                        key={key}
+                        src={data.url}
                     />
                 </button>
             ))}
 
-            {open && <Modal onClose={() => setOpen(false)}></Modal>}
+            {open && createPortal(<Modal data={thisPic} onClose={() => setOpen(false)}></Modal>, document.body)}
             {/* <img
                 className={cx('item-1')}
                 src={data.id}

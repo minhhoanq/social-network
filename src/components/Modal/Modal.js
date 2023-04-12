@@ -3,7 +3,7 @@ import styles from './Modal.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Modal({ onClose }) {
+function Modal({ onClose, data }) {
     return (
         <div className={cx('modal')}>
             <div className={cx('wrapper')}>
@@ -40,7 +40,10 @@ function Modal({ onClose }) {
                         ></line>
                     </svg>
                 </button>
-                <div className={cx('inner')}>content</div>
+                <div className={cx('inner')}>
+                    <img className={cx('img')} src={data} />
+                    <div className={cx('comment')}></div>
+                </div>
             </div>
         </div>
     );
