@@ -9,10 +9,12 @@ const cx = classNames.bind(styles);
 function ExploreItem({ data }) {
     const [open, setOpen] = useState(false);
     const [thisPic, setThisPic] = useState('');
+    const [value, setValue] = useState({});
 
     const setClickPicture = (data) => {
         setOpen(true);
         setThisPic(data.url);
+        setValue(data);
     };
 
     return (
@@ -27,7 +29,11 @@ function ExploreItem({ data }) {
                 </button>
             ))}
 
-            {open && createPortal(<Modal data={thisPic} onClose={() => setOpen(false)}></Modal>, document.body)}
+            {open &&
+                createPortal(
+                    <Modal data={value} urlImg={thisPic} onClose={() => setOpen(false)}></Modal>,
+                    document.body,
+                )}
             {/* <img
                 className={cx('item-1')}
                 src={data.id}

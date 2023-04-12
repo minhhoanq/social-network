@@ -1,9 +1,10 @@
 import classNames from 'classnames/bind';
 import styles from './Modal.module.scss';
+import { CommentIcon, HeartIcon, MessagesIcon, SavedIcon, ShareIcon } from '../Icons';
 
 const cx = classNames.bind(styles);
 
-function Modal({ onClose, data }) {
+function Modal({ onClose, data, urlImg }) {
     return (
         <div className={cx('modal')}>
             <div className={cx('wrapper')}>
@@ -41,8 +42,55 @@ function Modal({ onClose, data }) {
                     </svg>
                 </button>
                 <div className={cx('inner')}>
-                    <img className={cx('img')} src={data} />
-                    <div className={cx('comment')}></div>
+                    <img className={cx('img')} src={urlImg} />
+                    <div className={cx('comment')}>
+                        <div className={cx('header')}>
+                            <div className={cx('user')}>
+                                <img className={cx('avatar')} src={urlImg} />
+                                <div className={cx('info')}>
+                                    <div className={cx('info-up')}>
+                                        <div className={cx('nickname')}>hanthichxemphim</div>
+                                        <span className={cx('dot')}>•</span>
+                                        <button className={cx('btn-follow')}>Follow</button>
+                                    </div>
+                                    <div className={cx('info-down')}>Ho Chi Minh City, Vietnam</div>
+                                </div>
+                            </div>
+                            <div className={cx('btn-options')}>
+                                <svg
+                                    aria-label="More options"
+                                    class="_ab6-"
+                                    color="rgb(0, 0, 0)"
+                                    fill="rgb(0, 0, 0)"
+                                    height="24"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                >
+                                    <circle cx="12" cy="12" r="1.5"></circle>
+                                    <circle cx="6" cy="12" r="1.5"></circle>
+                                    <circle cx="18" cy="12" r="1.5"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div className={cx('body')}>
+                            <div className={cx('body_comment')}></div>
+                            <div className={cx('body_actions')}>
+                                <div className={cx('icon_3')}>
+                                    <span className={cx('icon-heart')}>
+                                        <HeartIcon />
+                                    </span>
+                                    <span className={cx('icon')}>
+                                        <CommentIcon />
+                                    </span>
+                                    <span className={cx('icon')}>
+                                        <ShareIcon />
+                                    </span>
+                                </div>
+                                <SavedIcon />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
