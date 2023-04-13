@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Modal.module.scss';
 import { CommentIcon, HeartIcon, MessagesIcon, SavedIcon, ShareIcon } from '../Icons';
+import MenuEmoji from './MenuEmoji/MenuEmoji';
 
 const cx = classNames.bind(styles);
 
@@ -88,6 +89,37 @@ function Modal({ onClose, data, urlImg }) {
                                     </span>
                                 </div>
                                 <SavedIcon />
+                            </div>
+                            <div className={cx('likes')}>
+                                <span className={cx('like')}>6,042</span>
+                                <span className={cx('like-text')}>likes</span>
+                            </div>
+                            <div className={cx('days')}>
+                                <span className={cx('day')}>2</span>
+                                <span className={cx('day-text')}>DAYS AGO</span>
+                            </div>
+                            <div className={cx('action_comment')}>
+                                <MenuEmoji>
+                                    <button className={cx('emoji')}>
+                                        <svg
+                                            aria-label="Emoji"
+                                            class="x1lliihq x1n2onr6"
+                                            color="rgb(0, 0, 0)"
+                                            fill="rgb(0, 0, 0)"
+                                            height="24"
+                                            role="img"
+                                            viewBox="0 0 24 24"
+                                            width="24"
+                                        >
+                                            <title>Emoji</title>
+                                            <path d="M15.83 10.997a1.167 1.167 0 1 0 1.167 1.167 1.167 1.167 0 0 0-1.167-1.167Zm-6.5 1.167a1.167 1.167 0 1 0-1.166 1.167 1.167 1.167 0 0 0 1.166-1.167Zm5.163 3.24a3.406 3.406 0 0 1-4.982.007 1 1 0 1 0-1.557 1.256 5.397 5.397 0 0 0 8.09 0 1 1 0 0 0-1.55-1.263ZM12 .503a11.5 11.5 0 1 0 11.5 11.5A11.513 11.513 0 0 0 12 .503Zm0 21a9.5 9.5 0 1 1 9.5-9.5 9.51 9.51 0 0 1-9.5 9.5Z"></path>
+                                        </svg>
+                                    </button>
+                                </MenuEmoji>
+
+                                <input className={cx('input-comment')} placeholder="Add a comment..." />
+
+                                <button className={cx('btn-post')}>Post</button>
                             </div>
                         </div>
                     </div>

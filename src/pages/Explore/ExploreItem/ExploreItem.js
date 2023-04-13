@@ -6,21 +6,22 @@ import { createPortal } from 'react-dom';
 
 const cx = classNames.bind(styles);
 
-function ExploreItem({ data }) {
+function ExploreItem({ data, onDisableScroll }) {
     const [open, setOpen] = useState(false);
     const [thisPic, setThisPic] = useState('');
     const [value, setValue] = useState({});
 
-    const setClickPicture = (data) => {
+    const setClickPicture = (data, onDisableScroll) => {
         setOpen(true);
         setThisPic(data.url);
         setValue(data);
+        onDisableScroll = 'disableScroll';
     };
 
     return (
         <div className={cx('image-grid')}>
             {data.map((data, key) => (
-                <button onClick={() => setClickPicture(data)} className={cx('image-btn')}>
+                <button onClick={() => setClickPicture(data, onDisableScroll)} className={cx('image-btn')}>
                     <img
                         // className={cx('item-1')}
                         key={key}

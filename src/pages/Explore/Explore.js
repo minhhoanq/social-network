@@ -8,6 +8,7 @@ const cx = classNames.bind(styles);
 
 function Explore() {
     const [data, setData] = useState([]);
+    const [disableScroll, setDisableScroll] = useState(false);
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -19,10 +20,9 @@ function Explore() {
     }, []);
 
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', `${disableScroll}`)}>
             <div className={cx('inner')}>
-                <ExploreItem data={data} />
-                {/* <ExploreItem data={data} /> */}
+                <ExploreItem data={data} onDisableScroll={() => setDisableScroll(true)} />
             </div>
         </div>
     );
