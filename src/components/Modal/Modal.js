@@ -1,11 +1,34 @@
 import classNames from 'classnames/bind';
 import styles from './Modal.module.scss';
-import { CommentIcon, HeartIcon, MessagesIcon, SavedIcon, ShareIcon } from '../Icons';
+import { CommentIcon, HeartIcon, SavedIcon, ShareIcon } from '../Icons';
 import MenuEmoji from './MenuEmoji/MenuEmoji';
+import { useEffect, useState } from 'react';
+import { hover } from '@testing-library/user-event/dist/hover';
+import CommentItems from '~/Common/CommentsItem/CommentItem';
+import DescriptionPost from '~/Common/DescriptionPost/DescriptionPost';
 
 const cx = classNames.bind(styles);
 
 function Modal({ onClose, data, urlImg }) {
+    const [valueComment, setValueCommnent] = useState('');
+    const [disPost, setDisPost] = useState(true);
+    const [disablePost, setDisablePost] = useState(true);
+
+    const handleInput = (e) => {
+        const value = e.target.value;
+        setValueCommnent(value);
+    };
+
+    useEffect(() => {
+        if (valueComment.trim().length > 0) {
+            setDisPost(false);
+            setDisablePost('');
+        } else {
+            setDisablePost('disable_post');
+            setDisPost(true);
+        }
+    }, [valueComment]);
+
     return (
         <div className={cx('modal')}>
             <div className={cx('wrapper')}>
@@ -75,7 +98,12 @@ function Modal({ onClose, data, urlImg }) {
                             </div>
                         </div>
                         <div className={cx('body')}>
-                            <div className={cx('body_comment')}></div>
+                            <div className={cx('body_comment')}>
+                                <div className={cx('description')}>
+                                    <DescriptionPost data={data} />
+                                </div>
+                                <div></div>
+                            </div>
                             <div className={cx('body_actions')}>
                                 <div className={cx('icon_3')}>
                                     <span className={cx('icon-heart')}>
@@ -117,9 +145,20 @@ function Modal({ onClose, data, urlImg }) {
                                     </button>
                                 </MenuEmoji>
 
-                                <input className={cx('input-comment')} placeholder="Add a comment..." />
+                                <input
+                                    value={valueComment}
+                                    className={cx('input-comment')}
+                                    placeholder="Add a comment..."
+                                    onChange={handleInput}
+                                />
 
-                                <button className={cx('btn-post')}>Post</button>
+                                <button
+                                    disabled={disPost}
+                                    className={cx('btn-post', disablePost)}
+                                    onClick={() => console.log('my vui ve')}
+                                >
+                                    Post
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 function User({ data }) {
     return (
-        <Link to={`/@${data.nickname}`} className={cx('profile_avatar')}>
+        <Link to={`/${data.username}`} className={cx('profile_avatar')}>
             <div className={cx('profile_wrapper_avatar')}>
                 <div className={cx('profile_inner_avatar')}>
                     <Link className={cx('profile_avatar_link')}>

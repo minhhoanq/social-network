@@ -28,7 +28,6 @@ import {
 import routes from '~/config/routes';
 import Menu from '~/components/Popper/Menu/Menu';
 import { useState } from 'react';
-import Tippy from '@tippyjs/react';
 
 const cx = classNames.bind(styles);
 

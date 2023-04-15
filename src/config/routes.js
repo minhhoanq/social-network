@@ -7,7 +7,7 @@ const routes = {
     notifications: '/notifications',
     create: '/create',
     following: '/following',
-    profile: '/@:nickname',
+    profile: '/:nickname',
     upload: '/upload',
     search: '/search',
     login: '/login',

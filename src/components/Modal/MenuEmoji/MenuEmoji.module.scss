@@ -1,10 +1,12 @@
 .menu-list {
     width: 309px;
     height: 309px;
-    overflow-y: auto;
+    overflow-y: overlay;
+    border: 2px solid #ccc;
+    border-radius: 4px;
 }
 
 .menu_popper {
     width: 100%;
-    min-height: 700px;
+    min-height: 500px;
 }
