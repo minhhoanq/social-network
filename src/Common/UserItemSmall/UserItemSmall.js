@@ -10,16 +10,12 @@ function UserItemSmall({ data }) {
                 <img className={cx('avatar')} src={'https://via.placeholder.com/600/51aa97'} />
                 <div className={cx('info')}>
                     <div className={cx('info-up')}>
-                        <div className={cx('nickname')}>hanthichxemphim</div>
+                        <div className={cx('nickname')}>{data.email}</div>
                         {/* <span className={cx('dot')}>•</span> */}
                         {/* <button className={cx('btn-follow')}>Follow</button> */}
+                        <span className={cx('content')}>{data.name}</span>
+                        <div className={cx('info-down')}>1d1 likeReply See translation</div>
                     </div>
-                </div>
-            </div>
-            <div className={cx('desc')}>
-                <span className={cx('content')}>{data.title}</span>
-                <div className={cx('info-down')}>
-                    1d1 likeReply See translation 1d1 likeReply See translation 1d1 likeReply See translation
                 </div>
             </div>
         </div>

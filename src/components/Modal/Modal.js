@@ -5,11 +5,14 @@ import MenuEmoji from './MenuEmoji/MenuEmoji';
 import { useEffect, useState } from 'react';
 import { hover } from '@testing-library/user-event/dist/hover';
 import CommentItems from '~/Common/CommentsItem/CommentItem';
+import * as commentsServiceS from '~/apiServices/commentsService';
 import DescriptionPost from '~/Common/DescriptionPost/DescriptionPost';
 
 const cx = classNames.bind(styles);
 
 function Modal({ onClose, data, urlImg }) {
+    const [dataComments, setDataComments] = useState([]);
+
     const [valueComment, setValueCommnent] = useState('');
     const [disPost, setDisPost] = useState(true);
     const [disablePost, setDisablePost] = useState(true);
@@ -28,6 +31,15 @@ function Modal({ onClose, data, urlImg }) {
             setDisPost(true);
         }
     }, [valueComment]);
+
+    useEffect(() => {
+        const fetchApi = async () => {
+            const result = await commentsServiceS.getComments(1);
+            console.log(result);
+            setDataComments(result);
+        };
+        fetchApi();
+    }, []);
 
     return (
         <div className={cx('modal')}>
@@ -100,7 +112,9 @@ function Modal({ onClose, data, urlImg }) {
                         <div className={cx('body')}>
                             <div className={cx('body_comment')}>
                                 <div className={cx('description')}>
-                                    <DescriptionPost data={data} />
+                                    {dataComments.map((datacomment) => (
+                                        <DescriptionPost data={datacomment} />
+                                    ))}
                                 </div>
                                 <div></div>
                             </div>

@@ -1,23 +1,33 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    position: relative;
+    // position: relative;
 }
 
 .user {
     height: 72px;
-    width: 452px;
-    display: flex;
-    align-items: center;
     padding: 14px 4px 14px 0;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 28px);
 }
 
 .info-up {
-    display: flex;
-    align-items: center;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--text-black-color);
+    align-items: stretch;
+    border: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    flex-shrink: 1;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    min-width: 0;
+    // width: calc(100% - 28px);
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 
 .avatar {
@@ -26,6 +36,13 @@
     margin: 0 14px 0 0;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.nickname {
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: inline-flex;
 }
 
 .dot {
@@ -46,16 +63,13 @@
     cursor: pointer;
 }
 
-.desc {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .content {
-    font-size: 1.2rem;
+    display: inline;
+    margin-left: 4px;
+    font-size: 1.4rem;
 }
 
 .info-down {
+    overflow-y: visible;
     font-size: 1.2rem;
 }
