@@ -9,7 +9,13 @@
     align-items: flex-start;
     display: flex;
     flex-direction: row;
-    width: calc(100% - 28px);
+    // width: calc(100% - 28px);
+    align-items: start;
+    justify-content: space-between;
+}
+
+.info {
+    flex: 1;
 }
 
 .info-up {
@@ -87,14 +93,43 @@ button {
     cursor: pointer;
 }
 
-.time {
+// .time {
+// }
+
+// .like {
+// }
+
+// .reply {
+// }
+
+// .translation {
+// }
+
+.react_btn {
+    margin-top: 4px;
 }
 
-.like {
+.react_btn svg {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin-top: 2px;
 }
 
-.reply {
+.list_reply {
+    margin: 10px 0 0 40px;
 }
 
-.translation {
+.hide_view-reply {
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    width: 25px;
+    border: 0.5px solid var(--black-color);
+}
+
+.text-line {
+    margin-left: 10px;
 }
