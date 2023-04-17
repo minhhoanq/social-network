@@ -72,6 +72,7 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(204, 204, 204, 0.65);
+    justify-content: space-between;
 }
 
 .btn-options {
@@ -89,7 +90,7 @@
 }
 
 .user {
-    height: 72px;
+    height: 60px;
     width: 452px;
     display: flex;
     align-items: center;
@@ -147,6 +148,10 @@
     border-bottom: 1px solid rgba(204, 204, 204, 0.65);
 }
 
+.body_comment ::-webkit-scrollbar {
+    display: none;
+}
+
 .description {
     height: 100%;
     overflow-y: auto;
@@ -162,9 +167,9 @@
     padding: 6px 16px 8px;
 }
 
-.action_3 {
-    display: flex;
-}
+// .action_3 {
+//     // display: flex;
+// }
 
 .icon-heart {
     height: 40px;
@@ -184,7 +189,8 @@
     height: 18px;
     padding: 0 16px;
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .like {
@@ -199,6 +205,7 @@
     margin: 0 0 12px 0;
     font-size: 1.1rem;
     font-weight: 200;
+    cursor: pointer;
 }
 
 .action_comment {

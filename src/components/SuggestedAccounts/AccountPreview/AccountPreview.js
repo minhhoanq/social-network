@@ -12,10 +12,13 @@ function AccountPreview({ data }) {
                 <img
                     className={cx('avatar')}
                     alt="Minh Hoang"
-                    src="https://kenh14cdn.com/2019/9/2/6644667323865452016205704822306513987975655n-15674195344681116486461.jpg"
+                    src={
+                        data.url ||
+                        'https://kenh14cdn.com/2019/9/2/6644667323865452016205704822306513987975655n-15674195344681116486461.jpg'
+                    }
                 />
                 <div className={cx('item-info')}>
-                    <p className={cx('nickname')}>{data.username}</p>
+                    <p className={cx('nickname')}>{data.username || data.id}</p>
                     <p className={cx('name')}>{data.name}</p>
                 </div>
             </header>
@@ -38,17 +41,26 @@ function AccountPreview({ data }) {
                 <img
                     className={cx('image')}
                     alt=""
-                    src="https://image-us.24h.com.vn/upload/3-2020/images/2020-09-09/Tung-gay-tranh-cai-vi-tat-che-day-dao-keo-nu-sinh-Sai-Thanh-nay-gay-sot-tro-lai-voi-than-hinh-boc-lu-3-1599637905-73-width496height578.jpg"
+                    src={
+                        data.url ||
+                        'https://image-us.24h.com.vn/upload/3-2020/images/2020-09-09/Tung-gay-tranh-cai-vi-tat-che-day-dao-keo-nu-sinh-Sai-Thanh-nay-gay-sot-tro-lai-voi-than-hinh-boc-lu-3-1599637905-73-width496height578.jpg'
+                    }
                 />
                 <img
                     className={cx('image')}
                     alt=""
-                    src="https://cafefcdn.com/203337114487263232/2022/3/9/photo-1-1646783225090604277749.jpg"
+                    src={
+                        data.url ||
+                        'https://cafefcdn.com/203337114487263232/2022/3/9/photo-1-1646783225090604277749.jpg'
+                    }
                 />
                 <img
                     className={cx('image')}
                     alt=""
-                    src="https://cdn.24h.com.vn/upload/3-2021/images/2021-07-05/Khoe-vo-ngoc-tran-chi-fan-chieu-tao-dang-de-khoe-vong-3-1625481403-300-width660height825.jpg"
+                    src={
+                        data.url ||
+                        'https://cdn.24h.com.vn/upload/3-2021/images/2021-07-05/Khoe-vo-ngoc-tran-chi-fan-chieu-tao-dang-de-khoe-vong-3-1625481403-300-width660height825.jpg'
+                    }
                 />
             </div>
             <Button className={cx('button')}>

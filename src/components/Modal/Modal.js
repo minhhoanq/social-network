@@ -3,16 +3,14 @@ import styles from './Modal.module.scss';
 import { CommentIcon, HeartIcon, SavedIcon, ShareIcon } from '../Icons';
 import MenuEmoji from './MenuEmoji/MenuEmoji';
 import { useEffect, useState } from 'react';
-import { hover } from '@testing-library/user-event/dist/hover';
-import CommentItems from '~/Common/CommentsItem/CommentItem';
 import * as commentsServiceS from '~/apiServices/commentsService';
 import DescriptionPost from '~/Common/DescriptionPost/DescriptionPost';
+import AccountItem from '../SuggestedAccounts/AccountItem';
 
 const cx = classNames.bind(styles);
 
 function Modal({ onClose, data, urlImg }) {
     const [dataComments, setDataComments] = useState([]);
-
     const [valueComment, setValueCommnent] = useState('');
     const [disPost, setDisPost] = useState(true);
     const [disablePost, setDisablePost] = useState(true);
@@ -20,6 +18,22 @@ function Modal({ onClose, data, urlImg }) {
     const handleInput = (e) => {
         const value = e.target.value;
         setValueCommnent(value);
+    };
+
+    //handle comment users
+    const handleButton = () => {
+        const arrayComment = dataComments.map((data) => data);
+        arrayComment.push({
+            postId: 1,
+            //id auto increment
+            id: 6,
+            name: `${valueComment}`,
+            email: 'Hayden@althea.biz',
+            body: 'harum non quasi et ratione\ntempore iure ex volupta…ugit inventore cupiditate\nvoluptates magni quo et',
+        });
+        // console.log(arrayComment);
+        setValueCommnent('');
+        setDataComments(arrayComment);
     };
 
     useEffect(() => {
@@ -81,7 +95,7 @@ function Modal({ onClose, data, urlImg }) {
                     <img className={cx('img')} src={urlImg} />
                     <div className={cx('comment')}>
                         <div className={cx('header')}>
-                            <div className={cx('user')}>
+                            {/* <div className={cx('user')}>
                                 <img className={cx('avatar')} src={urlImg} />
                                 <div className={cx('info')}>
                                     <div className={cx('info-up')}>
@@ -91,7 +105,8 @@ function Modal({ onClose, data, urlImg }) {
                                     </div>
                                     <div className={cx('info-down')}>Ho Chi Minh City, Vietnam</div>
                                 </div>
-                            </div>
+                            </div> */}
+                            <AccountItem data={data} className={cx('user')} />
                             <div className={cx('btn-options')}>
                                 <svg
                                     aria-label="More options"
@@ -119,7 +134,7 @@ function Modal({ onClose, data, urlImg }) {
                                 <div></div>
                             </div>
                             <div className={cx('body_actions')}>
-                                <div className={cx('icon_3')}>
+                                <div className={cx('action_3')}>
                                     <span className={cx('icon-heart')}>
                                         <HeartIcon />
                                     </span>
@@ -129,17 +144,19 @@ function Modal({ onClose, data, urlImg }) {
                                     <span className={cx('icon')}>
                                         <ShareIcon />
                                     </span>
+                                    <span className={cx('icon')}>
+                                        <SavedIcon />
+                                    </span>
                                 </div>
-                                <SavedIcon />
                             </div>
-                            <div className={cx('likes')}>
+                            <button className={cx('likes')}>
                                 <span className={cx('like')}>6,042</span>
                                 <span className={cx('like-text')}>likes</span>
-                            </div>
-                            <div className={cx('days')}>
+                            </button>
+                            <button className={cx('days')}>
                                 <span className={cx('day')}>2</span>
                                 <span className={cx('day-text')}>DAYS AGO</span>
-                            </div>
+                            </button>
                             <div className={cx('action_comment')}>
                                 <MenuEmoji>
                                     <button className={cx('emoji')}>
@@ -169,7 +186,7 @@ function Modal({ onClose, data, urlImg }) {
                                 <button
                                     disabled={disPost}
                                     className={cx('btn-post', disablePost)}
-                                    onClick={() => console.log('my vui ve')}
+                                    onClick={handleButton}
                                 >
                                     Post
                                 </button>

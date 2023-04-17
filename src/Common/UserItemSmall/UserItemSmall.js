@@ -14,7 +14,12 @@ function UserItemSmall({ data }) {
                         {/* <span className={cx('dot')}>•</span> */}
                         {/* <button className={cx('btn-follow')}>Follow</button> */}
                         <span className={cx('content')}>{data.name}</span>
-                        <div className={cx('info-down')}>1d1 likeReply See translation</div>
+                        <div className={cx('info-down')}>
+                            <button className={cx('time')}>1h</button>
+                            <button className={cx('like')}>like </button>
+                            <button className={cx('reply')}>Reply</button>
+                            <button className={cx('translation')}>See translation</button>
+                        </div>
                     </div>
                 </div>
             </div>
