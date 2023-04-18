@@ -2,7 +2,7 @@ import * as request from '~/utils/request';
 
 export const search = async (username, type = 'less') => {
     try {
-        const res = await request.get('users/', {
+        const res = await request.get('search/', {
             params: {
                 username,
                 type,

@@ -56,21 +56,25 @@ body {
     }
 }
 
-.item-1 {
-    grid-area: aa;
+.item-image {
+    object-fit: cover;
 }
-.item-2 {
-    grid-area: bb;
-}
-.item-3 {
-    grid-area: cc;
-}
-.item-4 {
-    grid-area: dd;
-}
-.item-5 {
-    grid-area: ee;
-}
+
+// .item-1 {
+//     grid-area: aa;
+// }
+// .item-2 {
+//     grid-area: bb;
+// }
+// .item-3 {
+//     grid-area: cc;
+// }
+// .item-4 {
+//     grid-area: dd;
+// }
+// .item-5 {
+//     grid-area: ee;
+// }
 
 .image-btn {
     cursor: pointer;

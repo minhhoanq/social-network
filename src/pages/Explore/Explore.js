@@ -1,30 +1,27 @@
 import classNames from 'classnames/bind';
 import styles from './Explore.module.scss';
 import { useEffect, useState } from 'react';
-import * as exploreService from '~/apiServices/exploreService';
+import * as postsService from '~/apiServices/postsService';
 import Modal from '~/components/Modal/Modal';
 import { createPortal } from 'react-dom';
 
 const cx = classNames.bind(styles);
 
 function Explore() {
-    const [data, setData] = useState([]);
+    const [datas, setDatas] = useState([]);
     const [open, setOpen] = useState(false);
-    const [thisPic, setThisPic] = useState('');
     const [value, setValue] = useState({});
 
     useEffect(() => {
         const fetchApi = async () => {
-            const result = await exploreService.getExplore(1);
-            console.log(result);
-            setData(result);
+            const result = await postsService.getPosts();
+            setDatas(result);
         };
         fetchApi();
     }, []);
 
     const setClickPicture = (data) => {
         setOpen(true);
-        setThisPic(data.url);
         setValue(data);
     };
 
@@ -32,25 +29,22 @@ function Explore() {
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('image-grid')}>
-                    {data.map((data, key) => (
-                        <button onClick={() => setClickPicture(data)} className={cx('image-btn')}>
-                            <img
-                                // className={cx('item-1')}
-                                key={key}
-                                src={data.url}
-                            />
-                        </button>
+                    {datas.map((data) => (
+                        <li key={data.id}>
+                            <button onClick={() => setClickPicture(data)} className={cx('image-btn')}>
+                                <img className={cx('item-image')} src={data.image} />
+                            </button>
+                        </li>
                     ))}
 
                     {open &&
                         createPortal(
                             <Modal
-                                data={value}
-                                urlImg={thisPic}
                                 onClose={() => {
                                     setOpen(false);
                                     document.body.style.overflow = 'unset';
                                 }}
+                                data={value}
                             ></Modal>,
                             document.body,
                             (document.body.style.overflow = 'hidden'),

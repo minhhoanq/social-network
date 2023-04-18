@@ -5,35 +5,30 @@ import MenuEmoji from './MenuEmoji/MenuEmoji';
 import { useEffect, useState } from 'react';
 import * as commentsServiceS from '~/apiServices/commentsService';
 import DescriptionPost from '~/Common/DescriptionPost/DescriptionPost';
+import * as suggestedService from '~/apiServices/suggestedService';
 import AccountItem from '../SuggestedAccounts/AccountItem';
 
 const cx = classNames.bind(styles);
 
-function Modal({ onClose, data, urlImg }) {
-    const [dataComments, setDataComments] = useState([]);
+function Modal({ onClose, data }) {
+    // const [dataComments, setDataComments] = useState([]);
     const [valueComment, setValueCommnent] = useState('');
     const [disPost, setDisPost] = useState(true);
     const [disablePost, setDisablePost] = useState(true);
+    const [suggestedUser, setSuggestedUser] = useState({});
+
+    useEffect(() => {
+        const fetchApi = async () => {
+            const result = await suggestedService.getSuggested(`${data.idUser}`);
+            setSuggestedUser(result);
+            console.log(result);
+        };
+        fetchApi();
+    }, []);
 
     const handleInput = (e) => {
         const value = e.target.value;
         setValueCommnent(value);
-    };
-
-    //handle comment users
-    const handleButton = () => {
-        const arrayComment = dataComments.map((data) => data);
-        arrayComment.push({
-            postId: 1,
-            //id auto increment
-            id: 6,
-            name: `${valueComment}`,
-            email: 'Hayden@althea.biz',
-            body: 'harum non quasi et ratione\ntempore iure ex volupta…ugit inventore cupiditate\nvoluptates magni quo et',
-        });
-        // console.log(arrayComment);
-        setValueCommnent('');
-        setDataComments(arrayComment);
     };
 
     useEffect(() => {
@@ -46,14 +41,21 @@ function Modal({ onClose, data, urlImg }) {
         }
     }, [valueComment]);
 
-    useEffect(() => {
-        const fetchApi = async () => {
-            const result = await commentsServiceS.getComments(1);
-            console.log(result);
-            setDataComments(result);
-        };
-        fetchApi();
-    }, []);
+    //handle comment users
+    // const handleButton = () => {
+    //     const arrayComment = dataComments.map((data) => data);
+    //     arrayComment.push({
+    //         postId: 1,
+    //         //id auto increment
+    //         id: 6,
+    //         name: `${valueComment}`,
+    //         email: 'Hayden@althea.biz',
+    //         body: 'harum non quasi et ratione\ntempore iure ex volupta…ugit inventore cupiditate\nvoluptates magni quo et',
+    //     });
+    //     // console.log(arrayComment);
+    //     setValueCommnent('');
+    //     setDataComments(arrayComment);
+    // };
 
     return (
         <div className={cx('modal')}>
@@ -92,7 +94,7 @@ function Modal({ onClose, data, urlImg }) {
                     </svg>
                 </button>
                 <div className={cx('inner')}>
-                    <img className={cx('img')} src={urlImg} />
+                    <img className={cx('img')} src={data.image} />
                     <div className={cx('comment')}>
                         <div className={cx('header')}>
                             {/* <div className={cx('user')}>
@@ -106,7 +108,7 @@ function Modal({ onClose, data, urlImg }) {
                                     <div className={cx('info-down')}>Ho Chi Minh City, Vietnam</div>
                                 </div>
                             </div> */}
-                            <AccountItem data={data} className={cx('user')} />
+                            <AccountItem data={suggestedUser} className={cx('user')} />
                             <div className={cx('btn-options')}>
                                 <svg
                                     aria-label="More options"
@@ -127,9 +129,10 @@ function Modal({ onClose, data, urlImg }) {
                         <div className={cx('body')}>
                             <div className={cx('body_comment')}>
                                 <div className={cx('description')}>
-                                    {dataComments.map((datacomment) => (
+                                    {/* {dataComments.map((datacomment) => (
                                         <DescriptionPost data={datacomment} />
-                                    ))}
+                                    ))} */}
+                                    {/* {<DescriptionPost data={}/>} */}
                                 </div>
                                 <div></div>
                             </div>
@@ -186,7 +189,7 @@ function Modal({ onClose, data, urlImg }) {
                                 <button
                                     disabled={disPost}
                                     className={cx('btn-post', disablePost)}
-                                    onClick={handleButton}
+                                    // onClick={handleButton}
                                 >
                                     Post
                                 </button>
