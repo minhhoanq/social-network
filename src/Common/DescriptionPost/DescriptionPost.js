@@ -1,11 +1,9 @@
 import UserItemSmall from '../UserItemSmall/UserItemSmall';
 
-function DescriptionPost({ data }) {
-    return (
-        <>
-            <UserItemSmall data={data} />
-        </>
-    );
+function DescriptionPost({ dataPost, dataUser, dataComment }) {
+    // console.log(dataPost);
+    // console.log(dataUser);
+    return <>{<UserItemSmall dataPost={dataPost} dataComment={dataComment} dataUser={dataUser} />}</>;
 }
 
 export default DescriptionPost;

@@ -5,8 +5,11 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function UserItemSmall({ data }) {
+function UserItemSmall({ dataPost = '', dataComment = '', dataUser }) {
     const [like, setLike] = useState(false);
+
+    console.log(dataPost);
+    console.log(dataComment);
 
     const handleLike = () => {
         setLike(!like);
@@ -15,13 +18,13 @@ function UserItemSmall({ data }) {
     return (
         <ul className={cx('wrapper')}>
             <div className={cx('user')}>
-                <img className={cx('avatar')} src={'https://via.placeholder.com/600/51aa97'} />
+                <img className={cx('avatar')} src={dataUser.image} />
                 <div className={cx('info')}>
                     <div className={cx('info-up')}>
-                        <div className={cx('nickname')}>{data.email}</div>
+                        <div className={cx('nickname')}>{dataUser.username}</div>
                         {/* <span className={cx('dot')}>•</span> */}
                         {/* <button className={cx('btn-follow')}>Follow</button> */}
-                        <span className={cx('content')}>{data.name}</span>
+                        <span className={cx('content')}>{dataPost.description || dataComment.comment}</span>
                         <div className={cx('info-down')}>
                             <button className={cx('time')}>1h</button>
                             {like && <button className={cx('like')}>Like</button>}
@@ -34,7 +37,7 @@ function UserItemSmall({ data }) {
                     {like === true ? <HeartIcon /> : <NotificationsIcon />}
                 </button>
             </div>
-            <li>
+            {/* <li>
                 <ul className={cx('list_reply')}>
                     <button className={cx('hide_view-reply')}>
                         <div className={cx('line')} />
@@ -45,8 +48,6 @@ function UserItemSmall({ data }) {
                         <div className={cx('info')}>
                             <div className={cx('info-up')}>
                                 <div className={cx('nickname')}>{data.email}</div>
-                                {/* <span className={cx('dot')}>•</span> */}
-                                {/* <button className={cx('btn-follow')}>Follow</button> */}
                                 <span className={cx('content')}>{data.name}</span>
                                 <div className={cx('info-down')}>
                                     <button className={cx('time')}>1h</button>
@@ -68,8 +69,6 @@ function UserItemSmall({ data }) {
                         <div className={cx('info')}>
                             <div className={cx('info-up')}>
                                 <div className={cx('nickname')}>{data.email}</div>
-                                {/* <span className={cx('dot')}>•</span> */}
-                                {/* <button className={cx('btn-follow')}>Follow</button> */}
                                 <span className={cx('content')}>{data.name}</span>
                                 <div className={cx('info-down')}>
                                     <button className={cx('time')}>1h</button>
@@ -84,7 +83,7 @@ function UserItemSmall({ data }) {
                         </button>
                     </div>
                 </ul>
-            </li>
+            </li> */}
         </ul>
     );
 }

@@ -30,11 +30,11 @@ function Explore() {
             <div className={cx('inner')}>
                 <div className={cx('image-grid')}>
                     {datas.map((data) => (
-                        <li key={data.id}>
-                            <button onClick={() => setClickPicture(data)} className={cx('image-btn')}>
-                                <img className={cx('item-image')} src={data.image} />
-                            </button>
-                        </li>
+                        // <li key={data.id}>
+                        <button onClick={() => setClickPicture(data)} className={cx('image-btn')}>
+                            <img className={cx('item-image')} src={data.image} />
+                        </button>
+                        // </li>
                     ))}
 
                     {open &&

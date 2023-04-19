@@ -302,5 +302,63 @@
             "createdDate": "",
             "updateDate": ""
         }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "comment": "Khóa c++ tốt nhất tôi từng học.",
+            "createdDate": "",
+            "updateDate": "",
+            "postId": 3,
+            "userId": 2
+        },
+        {
+            "id": 2,
+            "comment": "Thật hữu ích, mọi người hãy chia sẻ cho các bạn khác cùng tiếp cận và học tập dễ dàng hơn!",
+            "createdDate": "",
+            "updateDate": "",
+            "postId": 3,
+            "userId": 4
+        },
+        {
+            "id": 3,
+            "comment": "Giá như tôi biết đến nó sớm hơn thì tốt biết mấy, hãy chia sẻ nó đến những người khác. Chúc bạn ngày mới an lành.",
+            "createdDate": "",
+            "updateDate": "",
+            "postId": 3,
+            "userId": 1
+        },
+        {
+            "id": 4,
+            "comment": "I have a problem, can u help me ?",
+            "createdDate": "",
+            "updateDate": "",
+            "postId": 3,
+            "userId": 1
+        },
+        {
+            "id": 5,
+            "comment": "Great! I recommend this post!. You can send me contact information, I will donate to you",
+            "createdDate": "",
+            "updateDate": "",
+            "postId": 3,
+            "userId": 1
+        },
+        {
+            "id": 6,
+            "comment": "Great!",
+            "createdDate": "",
+            "updateDate": "",
+            "postId": 3,
+            "userId": 2
+        },
+        {
+            "id": 7,
+            "comment": "Tâm huyết quá, cảm ơn bạn. Tôi sẽ cố gắng để tiếp thu kiến thức mới, vượt qua rào cản an toàn của bản thân! Never give up!!!",
+            "createdDate": "",
+            "updateDate": "",
+            "postId": 3,
+            "userId": 3
+        }
     ]
 }

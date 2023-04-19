@@ -69,6 +69,10 @@
     border-bottom-right-radius: 4px;
 }
 
+.description {
+    max-height: 100px;
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -147,6 +151,8 @@
     width: 100%;
     padding: 0 16px;
     border-bottom: 1px solid rgba(204, 204, 204, 0.65);
+
+    overflow-y: auto;
 }
 
 .body_comment ::-webkit-scrollbar {

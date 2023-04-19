@@ -3,25 +3,68 @@ import styles from './Modal.module.scss';
 import { CommentIcon, HeartIcon, SavedIcon, ShareIcon } from '../Icons';
 import MenuEmoji from './MenuEmoji/MenuEmoji';
 import { useEffect, useState } from 'react';
-import * as commentsServiceS from '~/apiServices/commentsService';
+import * as commentsService from '~/apiServices/commentsService';
 import DescriptionPost from '~/Common/DescriptionPost/DescriptionPost';
 import * as suggestedService from '~/apiServices/suggestedService';
 import AccountItem from '../SuggestedAccounts/AccountItem';
 
 const cx = classNames.bind(styles);
 
+const initUser = {
+    id: 0,
+    f_name: '',
+    l_name: '',
+    username: '',
+    address: '',
+    image: '',
+    email: '',
+    bio: '',
+    created_at: '',
+    updated_at: '',
+    followings_count: '',
+    followers_count: '',
+    likes_count: '',
+    website_url: '',
+};
+
+// const initComments = {
+//     id: 0,
+//     f_name: '',
+//     l_name: '',
+//     username: '',
+//     address: '',
+//     image: '',
+//     email: '',
+//     bio: '',
+//     created_at: '',
+//     updated_at: '',
+//     followings_count: '',
+//     followers_count: '',
+//     likes_count: '',
+//     website_url: '',
+// };
+
 function Modal({ onClose, data }) {
-    // const [dataComments, setDataComments] = useState([]);
+    const [dataComments, setDataComments] = useState([]);
     const [valueComment, setValueCommnent] = useState('');
     const [disPost, setDisPost] = useState(true);
     const [disablePost, setDisablePost] = useState(true);
-    const [suggestedUser, setSuggestedUser] = useState({});
+    const [suggestedUser, setSuggestedUser] = useState(initUser);
 
     useEffect(() => {
         const fetchApi = async () => {
             const result = await suggestedService.getSuggested(`${data.idUser}`);
-            setSuggestedUser(result);
+
+            setSuggestedUser(result[0]);
+        };
+        fetchApi();
+    }, []);
+
+    useEffect(() => {
+        const fetchApi = async () => {
+            const result = await commentsService.getComments(`${data.id}`);
             console.log(result);
+            setDataComments(result);
         };
         fetchApi();
     }, []);
@@ -129,12 +172,18 @@ function Modal({ onClose, data }) {
                         <div className={cx('body')}>
                             <div className={cx('body_comment')}>
                                 <div className={cx('description')}>
-                                    {/* {dataComments.map((datacomment) => (
-                                        <DescriptionPost data={datacomment} />
-                                    ))} */}
-                                    {/* {<DescriptionPost data={}/>} */}
+                                    <div className={cx('description-post')}>
+                                        {<DescriptionPost dataPost={data} dataUser={suggestedUser} />}
+                                    </div>
                                 </div>
-                                <div></div>
+
+                                <div>
+                                    {dataComments.map((dataComment) => (
+                                        <div>
+                                            {<DescriptionPost dataComment={dataComment} dataUser={suggestedUser} />}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                             <div className={cx('body_actions')}>
                                 <div className={cx('action_3')}>
