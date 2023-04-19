@@ -146,6 +146,10 @@
     flex-direction: column;
 }
 
+.body ::-webkit-scrollbar {
+    display: none;
+}
+
 .body_comment {
     height: 484px;
     width: 100%;

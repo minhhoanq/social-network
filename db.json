@@ -310,7 +310,8 @@
             "createdDate": "",
             "updateDate": "",
             "postId": 3,
-            "userId": 2
+            "userId": 2,
+            "childrencomments": []
         },
         {
             "id": 2,
@@ -318,7 +319,37 @@
             "createdDate": "",
             "updateDate": "",
             "postId": 3,
-            "userId": 4
+            "userId": 4,
+            "childrencomments": [
+                {
+                    "id": 1,
+                    "comment": "Great!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 3
+                },
+                {
+                    "id": 2,
+                    "comment": "Nice!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 1
+                },
+                {
+                    "id": 3,
+                    "comment": "Yummi!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 4
+                },
+                {
+                    "id": 4,
+                    "comment": "Wow!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 5
+                }
+            ]
         },
         {
             "id": 3,
@@ -326,7 +357,8 @@
             "createdDate": "",
             "updateDate": "",
             "postId": 3,
-            "userId": 1
+            "userId": 1,
+            "childrencomments": []
         },
         {
             "id": 4,
@@ -334,7 +366,8 @@
             "createdDate": "",
             "updateDate": "",
             "postId": 3,
-            "userId": 1
+            "userId": 1,
+            "childrencomments": []
         },
         {
             "id": 5,
@@ -342,7 +375,23 @@
             "createdDate": "",
             "updateDate": "",
             "postId": 3,
-            "userId": 1
+            "userId": 1,
+            "childrencomments": [
+                {
+                    "id": 1,
+                    "comment": "Great!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 3
+                },
+                {
+                    "id": 2,
+                    "comment": "Nice!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 1
+                }
+            ]
         },
         {
             "id": 6,
@@ -350,7 +399,16 @@
             "createdDate": "",
             "updateDate": "",
             "postId": 3,
-            "userId": 2
+            "userId": 2,
+            "childrencomments": [
+                {
+                    "id": 1,
+                    "comment": "Great!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 3
+                }
+            ]
         },
         {
             "id": 7,
@@ -358,7 +416,37 @@
             "createdDate": "",
             "updateDate": "",
             "postId": 3,
-            "userId": 3
+            "userId": 3,
+            "childrencomments": [
+                {
+                    "id": 1,
+                    "comment": "Great!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 3
+                },
+                {
+                    "id": 2,
+                    "comment": "Nice!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 1
+                },
+                {
+                    "id": 3,
+                    "comment": "Yummi!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 4
+                },
+                {
+                    "id": 4,
+                    "comment": "Wow!",
+                    "createdDate": "",
+                    "updateDate": "",
+                    "userId": 5
+                }
+            ]
         }
     ]
 }

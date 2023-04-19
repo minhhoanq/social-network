@@ -7,12 +7,20 @@ const cx = classNames.bind(styles);
 
 function UserItemSmall({ dataPost = '', dataComment = '', dataUser }) {
     const [like, setLike] = useState(false);
-
-    console.log(dataPost);
-    console.log(dataComment);
+    const [viewReplies, setViewReplies] = useState(false);
+    const [textBtnReplies, setTextBtnReplies] = useState('View');
 
     const handleLike = () => {
         setLike(!like);
+    };
+
+    const handleViewReplies = () => {
+        setViewReplies(!viewReplies);
+        if (!viewReplies) {
+            setTextBtnReplies('Hide');
+        } else {
+            setTextBtnReplies('View');
+        }
     };
 
     return (
@@ -37,53 +45,39 @@ function UserItemSmall({ dataPost = '', dataComment = '', dataUser }) {
                     {like === true ? <HeartIcon /> : <NotificationsIcon />}
                 </button>
             </div>
-            {/* <li>
-                <ul className={cx('list_reply')}>
-                    <button className={cx('hide_view-reply')}>
-                        <div className={cx('line')} />
-                        <span className={cx('text-line')}>Hide replies</span>
-                    </button>
-                    <div className={cx('user')}>
-                        <img className={cx('avatar')} src={'https://via.placeholder.com/600/51aa97'} />
-                        <div className={cx('info')}>
-                            <div className={cx('info-up')}>
-                                <div className={cx('nickname')}>{data.email}</div>
-                                <span className={cx('content')}>{data.name}</span>
-                                <div className={cx('info-down')}>
-                                    <button className={cx('time')}>1h</button>
-                                    {like && <button className={cx('like')}>Like</button>}
-                                    <button className={cx('reply')}>Reply</button>
-                                    <button className={cx('translation')}>See translation</button>
+            {dataComment.childrencomments?.length > 0 && (
+                <button className={cx('hide_view-reply')} onClick={handleViewReplies}>
+                    <div className={cx('line')} />
+                    <span className={cx('text-line')}>{textBtnReplies} replies</span>
+                </button>
+            )}
+
+            {viewReplies && (
+                <li>
+                    <ul className={cx('list_reply')}>
+                        {dataComment.childrencomments?.map((childrencomment) => (
+                            <div className={cx('user')}>
+                                <img className={cx('avatar')} src={'https://via.placeholder.com/600/51aa97'} />
+                                <div className={cx('info')}>
+                                    <div className={cx('info-up')}>
+                                        <div className={cx('nickname')}>{childrencomment.id}</div>
+                                        <span className={cx('content')}>{childrencomment.comment}</span>
+                                        <div className={cx('info-down')}>
+                                            <button className={cx('time')}>1h</button>
+                                            {like && <button className={cx('like')}>Like</button>}
+                                            <button className={cx('reply')}>Reply</button>
+                                            <button className={cx('translation')}>See translation</button>
+                                        </div>
+                                    </div>
                                 </div>
+                                <button className={cx('react_btn')} onClick={handleLike}>
+                                    {like === true ? <HeartIcon /> : <NotificationsIcon />}
+                                </button>
                             </div>
-                        </div>
-                        <button className={cx('react_btn')} onClick={handleLike}>
-                            {like === true ? <HeartIcon /> : <NotificationsIcon />}
-                        </button>
-                    </div>
-                </ul>
-                <ul className={cx('list_reply')}>
-                    <div></div>
-                    <div className={cx('user')}>
-                        <img className={cx('avatar')} src={'https://via.placeholder.com/600/51aa97'} />
-                        <div className={cx('info')}>
-                            <div className={cx('info-up')}>
-                                <div className={cx('nickname')}>{data.email}</div>
-                                <span className={cx('content')}>{data.name}</span>
-                                <div className={cx('info-down')}>
-                                    <button className={cx('time')}>1h</button>
-                                    {like && <button className={cx('like')}>Like</button>}
-                                    <button className={cx('reply')}>Reply</button>
-                                    <button className={cx('translation')}>See translation</button>
-                                </div>
-                            </div>
-                        </div>
-                        <button className={cx('react_btn')} onClick={handleLike}>
-                            {like === true ? <HeartIcon /> : <NotificationsIcon />}
-                        </button>
-                    </div>
-                </ul>
-            </li> */}
+                        ))}
+                    </ul>
+                </li>
+            )}
         </ul>
     );
 }
