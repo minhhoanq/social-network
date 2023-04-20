@@ -7,6 +7,7 @@ import * as commentsService from '~/apiServices/commentsService';
 import DescriptionPost from '~/Common/DescriptionPost/DescriptionPost';
 import * as suggestedService from '~/apiServices/suggestedService';
 import AccountItem from '../SuggestedAccounts/AccountItem';
+import useDebounce from '~/hooks/useDebounce';
 
 const cx = classNames.bind(styles);
 
@@ -27,46 +28,46 @@ const initUser = {
     website_url: '',
 };
 
-// const initComments = {
-//     id: 0,
-//     f_name: '',
-//     l_name: '',
-//     username: '',
-//     address: '',
-//     image: '',
-//     email: '',
-//     bio: '',
-//     created_at: '',
-//     updated_at: '',
-//     followings_count: '',
-//     followers_count: '',
-//     likes_count: '',
-//     website_url: '',
-// };
+const initComments = {
+    comment: '',
+    createdDate: '',
+    updateDate: '',
+    postId: 3,
+    userId: 2,
+    childrencomments: [
+        // {
+        //     comment: 'test children comment 2!',
+        //     createdDate: '',
+        //     updateDate: '',
+        //     userId: 3,
+        // },
+    ],
+};
 
 function Modal({ onClose, data }) {
     const [dataComments, setDataComments] = useState([]);
+    const [postComment, setPostComment] = useState(initComments);
     const [valueComment, setValueCommnent] = useState('');
     const [disPost, setDisPost] = useState(true);
     const [disablePost, setDisablePost] = useState(true);
     const [suggestedUser, setSuggestedUser] = useState(initUser);
 
-    useEffect(() => {
-        const fetchApi = async () => {
-            const result = await suggestedService.getSuggested(`${data.idUser}`);
+    //get Api user by user id
+    const fetchApiUser = async () => {
+        const result = await suggestedService.getSuggested(`${data.idUser}`);
+        setSuggestedUser(result[0]);
+    };
 
-            setSuggestedUser(result[0]);
-        };
-        fetchApi();
-    }, []);
+    //get Api post by post id
+    const fetchApiPost = async () => {
+        const result = await commentsService.getComments(`${data.id}`);
+        setDataComments(result);
+        console.log('call api post');
+    };
 
     useEffect(() => {
-        const fetchApi = async () => {
-            const result = await commentsService.getComments(`${data.id}`);
-            console.log(result);
-            setDataComments(result);
-        };
-        fetchApi();
+        fetchApiUser();
+        fetchApiPost();
     }, []);
 
     const handleInput = (e) => {
@@ -84,21 +85,41 @@ function Modal({ onClose, data }) {
         }
     }, [valueComment]);
 
+    const postCommentApi = (data, callBackApiPost, callBackApiUser) => {
+        // setPostComment()
+        fetch('http://localhost:3000/comments/', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-type': 'application/json',
+            },
+        }).then(callBackApiPost, callBackApiUser);
+    };
     //handle comment users
-    // const handleButton = () => {
-    //     const arrayComment = dataComments.map((data) => data);
-    //     arrayComment.push({
-    //         postId: 1,
-    //         //id auto increment
-    //         id: 6,
-    //         name: `${valueComment}`,
-    //         email: 'Hayden@althea.biz',
-    //         body: 'harum non quasi et ratione\ntempore iure ex volupta…ugit inventore cupiditate\nvoluptates magni quo et',
-    //     });
-    //     // console.log(arrayComment);
-    //     setValueCommnent('');
-    //     setDataComments(arrayComment);
-    // };
+    const handleButton = (e) => {
+        e.preventDefault();
+        var formData = {
+            comment: valueComment,
+            createdDate: '',
+            updateDate: '',
+            postId: 3,
+            userId: 2,
+            childrencomments: [
+                // {
+                //     comment: 'test children comment 2!',
+                //     createdDate: '',
+                //     updateDate: '',
+                //     userId: 3,
+                //     id:1,
+                // },
+            ],
+        };
+
+        setPostComment(formData);
+        postCommentApi(formData, fetchApiPost, fetchApiUser);
+
+        setValueCommnent('');
+    };
 
     return (
         <div className={cx('modal')}>
@@ -238,7 +259,7 @@ function Modal({ onClose, data }) {
                                 <button
                                     disabled={disPost}
                                     className={cx('btn-post', disablePost)}
-                                    // onClick={handleButton}
+                                    onClick={handleButton}
                                 >
                                     Post
                                 </button>

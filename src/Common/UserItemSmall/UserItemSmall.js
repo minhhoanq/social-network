@@ -46,9 +46,12 @@ function UserItemSmall({ dataPost = '', dataComment = '', dataUser }) {
                 </button>
             </div>
             {dataComment.childrencomments?.length > 0 && (
-                <button className={cx('hide_view-reply')} onClick={handleViewReplies}>
+                <button style={{ cursor: 'pointer' }} className={cx('hide_view-reply')} onClick={handleViewReplies}>
                     <div className={cx('line')} />
-                    <span className={cx('text-line')}>{textBtnReplies} replies</span>
+                    <span className={cx('text-line')}>
+                        {textBtnReplies} replies {}
+                        {textBtnReplies === 'View' && <>({dataComment.childrencomments?.length})</>}
+                    </span>
                 </button>
             )}
 
