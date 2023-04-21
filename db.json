@@ -303,6 +303,43 @@
       "updateDate": ""
     }
   ],
+  "likes": [
+    {
+      "createdDate": "",
+      "updateDate": "",
+      "userId": 2,
+      "postId": 1,
+      "id": 3
+    },
+    {
+      "createdDate": "",
+      "updateDate": "",
+      "userId": 2,
+      "postId": 6,
+      "id": 4
+    },
+    {
+      "createdDate": "",
+      "updateDate": "",
+      "userId": 2,
+      "postId": 2,
+      "id": 6
+    },
+    {
+      "createdDate": "",
+      "updateDate": "",
+      "userId": 2,
+      "postId": 5,
+      "id": 9
+    },
+    {
+      "createdDate": "",
+      "updateDate": "",
+      "userId": 2,
+      "postId": 3,
+      "id": 10
+    }
+  ],
   "comments": [
     {
       "id": 1,
@@ -516,6 +553,69 @@
       "userId": 2,
       "childrencomments": [],
       "id": 13
+    },
+    {
+      "comment": "hey u",
+      "createdDate": "",
+      "updateDate": "",
+      "postId": 3,
+      "userId": 2,
+      "childrencomments": [],
+      "id": 14
+    },
+    {
+      "comment": "test",
+      "createdDate": "",
+      "updateDate": "",
+      "postId": 6,
+      "userId": 2,
+      "childrencomments": [],
+      "id": 15
+    },
+    {
+      "comment": "chat chua",
+      "createdDate": "",
+      "updateDate": "",
+      "postId": 4,
+      "userId": 2,
+      "childrencomments": [],
+      "id": 16
+    },
+    {
+      "comment": "my là cô gái xinh nhất vũ trụ !",
+      "createdDate": "",
+      "updateDate": "",
+      "postId": 3,
+      "userId": 2,
+      "childrencomments": [],
+      "id": 17
+    },
+    {
+      "comment": "Hello anh em, anh em đang làm gì đó!",
+      "createdDate": "",
+      "updateDate": "",
+      "postId": 3,
+      "userId": 2,
+      "childrencomments": [],
+      "id": 18
+    },
+    {
+      "comment": "Hello",
+      "createdDate": "",
+      "updateDate": "",
+      "postId": 2,
+      "userId": 2,
+      "childrencomments": [],
+      "id": 19
+    },
+    {
+      "comment": "check tối ưu code",
+      "createdDate": "",
+      "updateDate": "",
+      "postId": 3,
+      "userId": 2,
+      "childrencomments": [],
+      "id": 20
     }
   ]
 }

@@ -1,13 +1,13 @@
 import classNames from 'classnames/bind';
 import styles from './Modal.module.scss';
-import { CommentIcon, HeartIcon, SavedIcon, ShareIcon } from '../Icons';
+import { CommentIcon, HeartIcon, NotificationsIcon, SavedIcon, ShareIcon } from '../Icons';
 import MenuEmoji from './MenuEmoji/MenuEmoji';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as commentsService from '~/apiServices/commentsService';
-import DescriptionPost from '~/Common/DescriptionPost/DescriptionPost';
 import * as suggestedService from '~/apiServices/suggestedService';
+import * as likesService from '~/apiServices/likesService';
+import DescriptionPost from '~/Common/DescriptionPost/DescriptionPost';
 import AccountItem from '../SuggestedAccounts/AccountItem';
-import useDebounce from '~/hooks/useDebounce';
 
 const cx = classNames.bind(styles);
 
@@ -28,29 +28,27 @@ const initUser = {
     website_url: '',
 };
 
-const initComments = {
-    comment: '',
+const initLike = {
     createdDate: '',
     updateDate: '',
-    postId: 3,
-    userId: 2,
-    childrencomments: [
-        // {
-        //     comment: 'test children comment 2!',
-        //     createdDate: '',
-        //     updateDate: '',
-        //     userId: 3,
-        // },
-    ],
+    userId: 0,
+    postId: 0,
 };
 
+//Login account, development post comment
+
 function Modal({ onClose, data }) {
+    //useState
     const [dataComments, setDataComments] = useState([]);
-    const [postComment, setPostComment] = useState(initComments);
     const [valueComment, setValueCommnent] = useState('');
     const [disPost, setDisPost] = useState(true);
     const [disablePost, setDisablePost] = useState(true);
     const [suggestedUser, setSuggestedUser] = useState(initUser);
+    const [like, setLike] = useState(false);
+    const [dataLike, setDataLike] = useState(initLike);
+
+    // ref comment
+    const refComment = useRef();
 
     //get Api user by user id
     const fetchApiUser = async () => {
@@ -62,12 +60,22 @@ function Modal({ onClose, data }) {
     const fetchApiPost = async () => {
         const result = await commentsService.getComments(`${data.id}`);
         setDataComments(result);
-        console.log('call api post');
+    };
+
+    const fetchApiLikes = async () => {
+        const result = await likesService.getLikes(data.id);
+        setDataLike(result);
+        if (result[0]?.postId === data.id) {
+            setLike(true);
+        } else {
+            setLike(false);
+        }
     };
 
     useEffect(() => {
         fetchApiUser();
         fetchApiPost();
+        fetchApiLikes();
     }, []);
 
     const handleInput = (e) => {
@@ -85,16 +93,40 @@ function Modal({ onClose, data }) {
         }
     }, [valueComment]);
 
+    //Method POST
     const postCommentApi = (data, callBackApiPost, callBackApiUser) => {
-        // setPostComment()
-        fetch('http://localhost:3000/comments/', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-type': 'application/json',
-            },
-        }).then(callBackApiPost, callBackApiUser);
+        commentsService.postComments(data).then(callBackApiPost, callBackApiUser);
     };
+
+    //Method POST
+    const postLikesApi = (data, callBackApiPost) => {
+        //
+        likesService.postLikes(data).then(callBackApiPost);
+    };
+
+    //Method DELETE
+    const deleteLikesApi = (id, callBackApiPost) => {
+        likesService.deleteLikes(id).then(callBackApiPost);
+    };
+
+    //handle Click like post
+    const handleClickLike = (e) => {
+        e.preventDefault();
+        setLike(!like);
+        const formLikes = {
+            createdDate: '',
+            updateDate: '',
+            userId: 2,
+            postId: data.id,
+        };
+
+        if (dataLike[0]?.postId === data.id) {
+            deleteLikesApi(dataLike[0]?.id, fetchApiLikes);
+        } else {
+            postLikesApi(formLikes, fetchApiLikes);
+        }
+    };
+
     //handle comment users
     const handleButton = (e) => {
         e.preventDefault();
@@ -102,7 +134,7 @@ function Modal({ onClose, data }) {
             comment: valueComment,
             createdDate: '',
             updateDate: '',
-            postId: 3,
+            postId: data.id,
             userId: 2,
             childrencomments: [
                 // {
@@ -114,8 +146,6 @@ function Modal({ onClose, data }) {
                 // },
             ],
         };
-
-        setPostComment(formData);
         postCommentApi(formData, fetchApiPost, fetchApiUser);
 
         setValueCommnent('');
@@ -161,17 +191,6 @@ function Modal({ onClose, data }) {
                     <img className={cx('img')} src={data.image} />
                     <div className={cx('comment')}>
                         <div className={cx('header')}>
-                            {/* <div className={cx('user')}>
-                                <img className={cx('avatar')} src={urlImg} />
-                                <div className={cx('info')}>
-                                    <div className={cx('info-up')}>
-                                        <div className={cx('nickname')}>hanthichxemphim</div>
-                                        <span className={cx('dot')}>•</span>
-                                        <button className={cx('btn-follow')}>Follow</button>
-                                    </div>
-                                    <div className={cx('info-down')}>Ho Chi Minh City, Vietnam</div>
-                                </div>
-                            </div> */}
                             <AccountItem data={suggestedUser} className={cx('user')} />
                             <div className={cx('btn-options')}>
                                 <svg
@@ -208,12 +227,20 @@ function Modal({ onClose, data }) {
                             </div>
                             <div className={cx('body_actions')}>
                                 <div className={cx('action_3')}>
-                                    <span className={cx('icon-heart')}>
-                                        <HeartIcon />
-                                    </span>
-                                    <span className={cx('icon')}>
+                                    <button
+                                        className={cx('icon-heart')}
+                                        onClick={handleClickLike}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        {like ? <HeartIcon /> : <NotificationsIcon />}
+                                    </button>
+                                    <button
+                                        className={cx('icon')}
+                                        onClick={() => refComment.current.focus()}
+                                        style={{ cursor: 'pointer' }}
+                                    >
                                         <CommentIcon />
-                                    </span>
+                                    </button>
                                     <span className={cx('icon')}>
                                         <ShareIcon />
                                     </span>
@@ -254,6 +281,7 @@ function Modal({ onClose, data }) {
                                     className={cx('input-comment')}
                                     placeholder="Add a comment..."
                                     onChange={handleInput}
+                                    ref={refComment}
                                 />
 
                                 <button

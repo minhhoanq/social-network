@@ -13,3 +13,11 @@ export const getComments = async (postId, type = 'less') => {
         console.log(error);
     }
 };
+
+export const postComments = async (data) => {
+    try {
+        await request.post('comments/', data);
+    } catch (error) {
+        console.log(error);
+    }
+};
