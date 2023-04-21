@@ -30,8 +30,6 @@ function UserItemSmall({ dataPost = '', dataComment = '', dataUser }) {
                 <div className={cx('info')}>
                     <div className={cx('info-up')}>
                         <div className={cx('nickname')}>{dataUser.username}</div>
-                        {/* <span className={cx('dot')}>•</span> */}
-                        {/* <button className={cx('btn-follow')}>Follow</button> */}
                         <span className={cx('content')}>{dataPost.description || dataComment.comment}</span>
                         <div className={cx('info-down')}>
                             <button className={cx('time')}>1h</button>

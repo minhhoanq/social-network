@@ -1,0 +1,42 @@
+.wrapper {
+    max-width: 470px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image_block img {
+    max-width: 100%;
+    height: 467px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.body {
+    width: 100%;
+}
+
+.reaction {
+    width: 100%;
+}
+
+.wrapper_icon {
+    display: flex;
+}
+
+.btn_icon {
+    height: 40px;
+    padding: 8px;
+}
+
+.btn_icon_like {
+    padding-left: 0;
+}
+
+.btn_icon_save {
+    margin-left: 330px;
+}
+
+.text_likes {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
