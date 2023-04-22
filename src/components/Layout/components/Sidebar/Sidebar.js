@@ -28,6 +28,10 @@ import {
 import routes from '~/config/routes';
 import Menu from '~/components/Popper/Menu/Menu';
 import { useState } from 'react';
+import { setSignOutState } from '~/features/user/userSlice';
+import { auth, provider } from '~/firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -147,17 +151,27 @@ const MORE_ITEMS = [
     {
         title: 'Log out',
         not_border_bottom: true,
+        type: 'logout',
     },
 ];
 
 function Sidebar() {
     const [routeBtn, setRouteBtn] = useState('');
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     //Handle logic
     const HandleMenuChange = (menuItem) => {
         switch (menuItem.type) {
-            case 'language':
-                //Handle logic
+            case 'logout':
+                auth.signOut()
+                    .then(() => {
+                        dispatch(setSignOutState());
+                        navigate('/login');
+                    })
+                    .catch((error) => {
+                        alert(error.messages);
+                    });
                 break;
 
             default:

@@ -1,11 +1,11 @@
 import styles from './Login.module.scss';
 import classNames from 'classnames/bind';
 import { AiFillFacebook } from 'react-icons/ai';
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 // import isEmpty from 'validator/lib/isEmpty';
 import { InstagramTextIcon } from '~/components/Icons';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { auth, provider } from '~/firebase';
 import { selectUserName, selectUserPhoto, setUserLoginDetails } from '~/features/user/userSlice';
 
@@ -20,7 +20,7 @@ function Login() {
 
     //
     const dispatch = useDispatch();
-    // const history = useHistory();
+    const navigate = useNavigate();
     const username = useSelector(selectUserName);
     const userphoto = useSelector(selectUserPhoto);
 
@@ -35,14 +35,25 @@ function Login() {
     //     }
     // }, [user, password]);
 
+    useEffect(() => {
+        auth.onAuthStateChanged(async (user) => {
+            if (user) {
+                setUser(user);
+                navigate('/');
+            }
+        });
+    }, [username]);
+
     const handleAuth = () => {
-        auth.signInWithPopup(provider)
-            .then((result) => {
-                setUser(result.user);
-            })
-            .catch((error) => {
-                alert(error);
-            });
+        if (!username) {
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    setUser(result.user);
+                })
+                .catch((error) => {
+                    alert(error);
+                });
+        }
     };
 
     const setUser = (user) => {
@@ -143,7 +154,7 @@ function Login() {
                                     <span className={cx('wrapper_link_fb-text')}>Login with Facebook</span>
                                 </a>
                             ) : (
-                                <img src={userphoto} />
+                                <></>
                             )}
                         </div>
                     </div>
