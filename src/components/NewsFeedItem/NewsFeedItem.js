@@ -6,11 +6,15 @@ import DescriptionPost from '~/Common/DescriptionPost/DescriptionPost';
 
 const cx = classNames.bind(styles);
 
-function NewsFeedItem({ dataPost, dataUser }) {
+function NewsFeedItem({ dataPost }) {
+    console.log(dataPost);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>{/* <AccountItem data={user} /> */}</div>
-            <div className={cx('image_block')}>{/* <img src={post.image} /> */}</div>
+            <div className={cx('image_block')}>
+                <img src="https://files.fullstack.edu.vn/f8-prod/courses/21/63e1bcbaed1dd.png" />
+            </div>
             <div className={cx('body')}>
                 <div className={cx('reaction')}>
                     <div className={cx('wrapper_icon')}>

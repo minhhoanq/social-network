@@ -1,63 +1,92 @@
 import styles from './Login.module.scss';
 import classNames from 'classnames/bind';
 import { AiFillFacebook } from 'react-icons/ai';
-import { useEffect, useState } from 'react';
-import isEmpty from 'validator/lib/isEmpty';
+// import { useEffect, useState } from 'react';
+// import isEmpty from 'validator/lib/isEmpty';
 import { InstagramTextIcon } from '~/components/Icons';
+import { useDispatch, useSelector } from 'react-redux';
+// import { useHistory } from 'react-router-dom';
+import { auth, provider } from '~/firebase';
+import { selectUserName, selectUserPhoto, setUserLoginDetails } from '~/features/user/userSlice';
 
 const cx = classNames.bind(styles);
 
 function Login() {
-    const [user, setUser] = useState('');
-    const [password, setPassword] = useState('');
-    // const [validMsg, setValidMsg] = useState('');
-    const [disabled, setDisable] = useState(0);
-    const [dis, setDis] = useState('');
-    const [disp, setDisp] = useState('');
+    // const [user, setUser] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [disabled, setDisable] = useState(0);
+    // const [dis, setDis] = useState('');
+    // const [disp, setDisp] = useState('');
 
-    useEffect(() => {
-        if (ValidateAll() === false) {
-            setDisable(true);
-            setDis('disable');
-            setDisp('none');
-        } else {
-            setDisable(false);
-            setDis('');
-        }
-    }, [user, password]);
+    //
+    const dispatch = useDispatch();
+    // const history = useHistory();
+    const username = useSelector(selectUserName);
+    const userphoto = useSelector(selectUserPhoto);
 
-    const onChangeUserName = (e) => {
-        const value = e.target.value;
-        setUser(value);
+    // useEffect(() => {
+    //     if (ValidateAll() === false) {
+    //         setDisable(true);
+    //         setDis('disable');
+    //         setDisp('none');
+    //     } else {
+    //         setDisable(false);
+    //         setDis('');
+    //     }
+    // }, [user, password]);
+
+    const handleAuth = () => {
+        auth.signInWithPopup(provider)
+            .then((result) => {
+                setUser(result.user);
+            })
+            .catch((error) => {
+                alert(error);
+            });
     };
 
-    const onChangePassword = (e) => {
-        const value = e.target.value;
-        setPassword(value);
+    const setUser = (user) => {
+        dispatch(
+            setUserLoginDetails({
+                name: user.displayName,
+                email: user.email,
+                photo: user.photoURL,
+            }),
+        );
     };
 
-    const ValidateAll = () => {
-        if (isEmpty(user)) {
-            return false;
-        }
+    // const onChangeUserName = (e) => {
+    //     const value = e.target.value;
+    //     // setUser(value);
+    // };
 
-        if (isEmpty(password)) {
-            return false;
-        }
+    // const onChangePassword = (e) => {
+    //     const value = e.target.value;
+    //     setPassword(value);
+    // };
 
-        return true;
-    };
+    // const ValidateAll = () => {
+    //     if (isEmpty(user)) {
+    //         return false;
+    //     }
 
-    const onCLickSubmit = (e) => {
-        e.preventDefault();
-        const valid = ValidateAll();
-        if (!valid) {
-            return;
-        } else {
-            setDisp('block');
-            console.log(`check`);
-        }
-    };
+    //     if (isEmpty(password)) {
+    //         return false;
+    //     }
+
+    //     return true;
+    // };
+
+    // const onCLickSubmit = (e) => {
+    //     e.preventDefault();
+    //     const valid = ValidateAll();
+    //     if (!valid) {
+    //         return;
+    //     } else {
+    //         setDisp('block');
+    //         console.log(`check`);
+    //     }
+    // };
 
     return (
         <form className={cx('wrapper')}>
@@ -75,7 +104,7 @@ function Login() {
                                 className={cx('enter_info_ipnut-user')}
                                 placeholder="Phone number, username, or email"
                                 type={'text'}
-                                onChange={onChangeUserName}
+                                // onChange={onChangeUserName}
                             ></input>
                         </div>
                         {/* input password */}
@@ -84,12 +113,17 @@ function Login() {
                                 className={cx('enter_info_ipnut-user')}
                                 placeholder="Password"
                                 type={'password'}
-                                onChange={onChangePassword}
+                                // onChange={onChangePassword}
                             ></input>
                         </div>
                         {/* btn login */}
                         <div className={cx('enter_info_wrapper_btn')}>
-                            <button className={cx('enter_info_btn', dis)} onClick={onCLickSubmit} disabled={disabled}>
+                            <button
+                                className={cx('enter_info_btn', {
+                                    /*dis*/
+                                })}
+                                // onClick={onCLickSubmit} disabled={disabled}
+                            >
                                 Login
                             </button>
                         </div>
@@ -101,16 +135,24 @@ function Login() {
                         </div>
                         {/* login with fb */}
                         <div className={cx('wrapper_link_fb')}>
-                            <button className={cx('wrapper_link_fb-btn')}>
-                                <span className={cx('wrapper_link_fb-icon')}>
-                                    <AiFillFacebook className={cx('fb-icon')}></AiFillFacebook>
-                                </span>
-                                <span className={cx('wrapper_link_fb-text')}>Login with Facebook</span>
-                            </button>
+                            {!username ? (
+                                <a className={cx('wrapper_link_fb-btn')} onClick={handleAuth}>
+                                    <span className={cx('wrapper_link_fb-icon')}>
+                                        <AiFillFacebook className={cx('fb-icon')}></AiFillFacebook>
+                                    </span>
+                                    <span className={cx('wrapper_link_fb-text')}>Login with Facebook</span>
+                                </a>
+                            ) : (
+                                <img src={userphoto} />
+                            )}
                         </div>
                     </div>
 
-                    <div className={cx('wrapper_msg')} id="msgError" style={{ display: disp }}>
+                    <div
+                        className={cx('wrapper_msg')}
+                        id="msgError"
+                        // style={{ display: disp }}
+                    >
                         <p className={cx('msg_notify')}>
                             Sorry, your password was incorrect. Please double-check your password.
                         </p>

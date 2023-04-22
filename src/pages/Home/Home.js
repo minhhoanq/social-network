@@ -78,11 +78,11 @@ function Home() {
         // };
         // getUsersApi();
 
-        // const getPostsApi = async () => {
-        //     const result = await postsService.getPosts();
-        //     setPosts(result);
-        // };
-        // getPostsApi();
+        const getPostsApi = async () => {
+            const result = await postsService.getPosts();
+            setPosts(result);
+        };
+        getPostsApi();
     }, []);
 
     // const getUserByPostId = (id) => {
@@ -109,10 +109,10 @@ function Home() {
             <div className={cx('wrapper')}>
                 <div className={cx('news')}>
                     {/* news feed item */}
-                    {/* {posts.map((post) => {
-                        getUserByPostId(post.id);
-                        <NewsFeedItem dataPost={post} dataUser={user} />;
-                    })} */}
+                    {posts.map((post) => {
+                        // getUserByPostId(post.id);
+                        <NewsFeedItem dataPost={post} />;
+                    })}
                 </div>
                 {/* SuggestedAccounts */}
                 <SuggestedAccounts label="Suggestions for you" data={suggestedUser} />
