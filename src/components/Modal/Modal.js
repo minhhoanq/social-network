@@ -72,8 +72,6 @@ function Modal({ onClose, data }) {
         }
     };
 
-    console.log(data.id);
-
     useEffect(() => {
         fetchApiUser();
         fetchApiPost();

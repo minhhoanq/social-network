@@ -6,6 +6,11 @@ import SuggestedAccounts from '~/components/SuggestedAccounts';
 import { useEffect, useState } from 'react';
 import * as suggestedService from '~/apiServices/suggestedService';
 import * as postsService from '~/apiServices/postsService';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUserName } from '~/features/user/userSlice';
+// import db from '~/firebase';
+import { selectPosts, setPosts } from '~/features/posts/postsSlice';
+// import * as postsService from '~/apiServices/postsService';
 import NewsFeedItem from '~/components/NewsFeedItem/NewsFeedItem';
 
 const cx = classNames.bind(styles);
@@ -62,9 +67,25 @@ const initUser = {
 
 function Home() {
     const [suggestedUser, setSuggestedUser] = useState([]);
-    const [users, setUsers] = useState([]);
     const [posts, setPosts] = useState([]);
-    const [user, setUser] = useState(initUser);
+    // const dispatch = useDispatch();
+    // const username = useSelector(selectUserName);
+    // const newPosts = useSelector(selectPosts);
+
+    // newPosts?.map((data) => console.log('check'));
+
+    // let posts = [];
+
+    // useEffect(() => {
+    //     // db.collection('posts').onSnapshot((snapshot) => {
+    //     //     // console.log('hello');
+    //     //     snapshot.docs.map((doc) => {
+    //     //         // console.log(posts);
+    //     //         posts = [...posts, { id: doc.id, ...doc.data() }];
+    //     //     });
+    //     // });
+
+    // }, []);
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -72,50 +93,25 @@ function Home() {
             setSuggestedUser(result);
         };
         fetchApi();
-        // const getUsersApi = async () => {
-        //     const result = await suggestedService.getSuggested();
-        //     setUsers(result);
-        // };
-        // getUsersApi();
 
-        const getPostsApi = async () => {
+        const fetchApiPost = async () => {
             const result = await postsService.getPosts();
             setPosts(result);
         };
-        getPostsApi();
+        fetchApiPost();
     }, []);
-
-    // const getUserByPostId = (id) => {
-    //     users.filter((user) => {
-    //         if (user.id === id) {
-    //             setUser(user);
-    //         }
-    //     });
-    // };
-
-    //Handle logic
-    const HandleMenuChange = (menuItem) => {
-        switch (menuItem.type) {
-            case 'language':
-                //Handle logic
-                break;
-            default:
-                break;
-        }
-    };
 
     return (
         <div className={cx('main_home')}>
             <div className={cx('wrapper')}>
                 <div className={cx('news')}>
                     {/* news feed item */}
-                    {posts.map((post) => {
-                        // getUserByPostId(post.id);
-                        <NewsFeedItem dataPost={post} />;
-                    })}
+                    {posts.map((post) => (
+                        <NewsFeedItem dataPost={post} />
+                    ))}
                 </div>
                 {/* SuggestedAccounts */}
-                <SuggestedAccounts label="Suggestions for you" data={suggestedUser} />
+                <SuggestedAccounts label="Suggestions for you" datas={suggestedUser} />
             </div>
         </div>
     );

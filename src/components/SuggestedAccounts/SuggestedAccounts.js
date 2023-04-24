@@ -5,12 +5,12 @@ import AccountItem from './AccountItem';
 
 const cx = classNames.bind(styles);
 
-function SuggestedAccounts({ label, data = [] }) {
+function SuggestedAccounts({ label, datas }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
-            {data.map((account) => (
-                <AccountItem key={account.id} data={account} />
+            {datas.map((data) => (
+                <AccountItem dataUser={data} />
             ))}
 
             <p className={cx('seeall')}>See All</p>
