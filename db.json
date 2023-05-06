@@ -251,6 +251,9 @@
             "idUser": 3,
             "description": "Khóa học lập trình C++ từ cơ bản tới nâng cao dành cho người mới bắt đầu. Mục tiêu của khóa học này nhằm giúp các bạn nắm được các khái niệm căn cơ của lập trình, giúp các bạn có nền tảng vững chắc để chinh phục con đường trở thành một lập trình viên.",
             "image": "https://files.fullstack.edu.vn/f8-prod/courses/21/63e1bcbaed1dd.png",
+            "access_modifier": 0,
+            "like_count": 102,
+            "shared_post_id": "",
             "createdDate": "",
             "updateDate": ""
         },
@@ -259,6 +262,9 @@
             "idUser": 4,
             "description": "Trong khóa này chúng ta sẽ học về cách xây dựng giao diện web responsive với Grid System, tương tự Bootstrap 4.",
             "image": "https://files.fullstack.edu.vn/f8-prod/courses/3.png",
+            "access_modifier": 0,
+            "like_count": 222,
+            "shared_post_id": "",
             "createdDate": "",
             "updateDate": ""
         },
@@ -267,6 +273,9 @@
             "idUser": 1,
             "description": "Hiểu sâu hơn về cách Javascript hoạt động, tìm hiểu về IIFE, closure, reference types, this keyword, bind, call, apply, prototype, ...",
             "image": "https://files.fullstack.edu.vn/f8-prod/courses/12.png",
+            "access_modifier": 0,
+            "like_count": 154,
+            "shared_post_id": "",
             "createdDate": "",
             "updateDate": ""
         },
@@ -275,6 +284,9 @@
             "idUser": 2,
             "description": "Sở hữu một Terminal hiện đại, mạnh mẽ trong tùy biến và học cách làm việc với Ubuntu là một bước quan trọng trên con đường trở thành một Web Developer.",
             "image": "https://files.fullstack.edu.vn/f8-prod/courses/14/624faac11d109.png",
+            "access_modifier": 0,
+            "like_count": 218,
+            "shared_post_id": "",
             "createdDate": "",
             "updateDate": ""
         },
@@ -283,6 +295,9 @@
             "idUser": 1,
             "description": "Xây dựng ứng dụng đưa ra cảnh báo khi người dùng sờ tay lên mặt. Chúng ta sẽ sử dụng thư viện ReactJS & Tensoflow để hoàn thiện ứng dụng này.",
             "image": "https://files.fullstack.edu.vn/f8-prod/courses/4/61a9e9e701506.png",
+            "access_modifier": 0,
+            "like_count": 59,
+            "shared_post_id": "",
             "createdDate": "",
             "updateDate": ""
         },
@@ -291,6 +306,9 @@
             "idUser": 5,
             "description": "Học Back-end với Node & ExpressJS framework, hiểu các khái niệm khi làm Back-end và xây dựng RESTful API cho trang web.",
             "image": "https://files.fullstack.edu.vn/f8-prod/courses/6.png",
+            "access_modifier": 0,
+            "like_count": 48,
+            "shared_post_id": "",
             "createdDate": "",
             "updateDate": ""
         },
@@ -299,6 +317,9 @@
             "idUser": 2,
             "description": "Thực hành 8 dự án trên Figma, 300+ bài tập và thử thách, mua một lần học mãi mãi, được thiết kế và hướng dẫn bởi Sơn Đặng.",
             "image": "https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png",
+            "access_modifier": 0,
+            "like_count": 12,
+            "shared_post_id": "",
             "createdDate": "",
             "updateDate": ""
         }
